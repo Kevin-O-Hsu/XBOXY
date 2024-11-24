@@ -1,0 +1,10 @@
+.venv
+__pycache__
+ar.txt
+output.json
+cnk
+cache
+config
+data
+release
+osrcd
