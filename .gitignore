@@ -18,3 +18,4 @@ data/*
 venv/*
 resources
 tools
+bfg.jar
