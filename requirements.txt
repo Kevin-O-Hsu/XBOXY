@@ -15,7 +15,7 @@ loguru==0.7.2
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2
 mdurl==0.1.2
-Nuitka==2.5.5
+Nuitka
 ordered-set==4.1.0
 orjson==3.10.11
 playwright==1.48.0
