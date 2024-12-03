@@ -31,7 +31,8 @@ jobs:
 
     - name: Build with Nuitka
       run: |
-        nuitka --onefile --include-data-dir=resources=resources --include-data-file=resources/singbox.exe=resources/singbox.exe --show-scons --windows-uac-admin --user-package-configuration-file=nuitka-playwright.yml --output-dir=cache --standalone XBOXY/xboxy.py
+        nuitka --onefile --include-data-dir=resources=resources --include-data-file=resources/singbox.exe=resources/singbox.exe --show-scons --windows-uac-admin --user-package-configuration-file=nuitka-playwright.yml --output-dir=cache --standalone --disable-plugin=anti-bloat XBOXY/xboxy.py
+
 
     - name: Cache Nuitka build results
       uses: actions/cache@v4
