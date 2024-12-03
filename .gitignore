@@ -8,5 +8,13 @@ config
 data
 release
 osrcd
+osrcd/*
+release/*
+tools/*
+cache/*
+cnk/*
+config/*
+data/*
+venv/*
 resources
 tools
