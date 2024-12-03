@@ -9,8 +9,8 @@ import pathlib
 sys.excepthook = lambda _, __, ___: None
 
 version = 'v1.0.3'
-release_date = '2024-11-17'
-build = '1'
+release_date = '2024-12-3'
+build = '2'
 update_note = \
     """
     * 修复了一些已知问题
@@ -19,6 +19,7 @@ update_note = \
     * 可以从文件导入账号密码，且会根据格式自动识别，乱七八糟的格式也可以尝试丢进来
     * 优化了部分代码
     * 拒绝selenium等老套框架，更加高效先进
+    * 优化了Build的流程和release的文件管理
     """
 
 def main():

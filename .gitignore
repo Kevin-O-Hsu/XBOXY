@@ -1,7 +1,6 @@
 
 venv
 __pycache__
-ar.txt
 output.json
 cnk
 cache
@@ -10,3 +9,4 @@ data
 release
 osrcd
 resources
+tools

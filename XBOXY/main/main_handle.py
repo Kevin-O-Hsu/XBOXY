@@ -45,8 +45,16 @@ class XBOXY:
         logger.info("所有账号已加载")
         logger.info("正在连接到代理服务器...")
         try:
+            og_config = systemutils.JsonFile(pathlib.Path("resources/ny.json")).get_json_data()
+            
+            proxy_config_path = systemutils.JsonFile(pathlib.Path("resources/fix_ny.json")).create_file()
+            for rule in og_config["route"]["rule_set"]:
+                rule["path"] = str(systemutils.File(pathlib.Path(rule["path"])).path)
+            
+            proxy_config_path.write_json_data(og_config)
+            
             systemutils.Runner(
-                f"{os.path.join(os.getcwd(), 'resources/singbox.exe')} -c {os.path.join(os.getcwd(),'resources/ny.json run')}"
+                f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path} -c {proxy_config_path.path} run"
             ).run()
             logger.info("代理服务器已连接")
         except Exception as e:
@@ -155,5 +163,5 @@ class XBOXY:
         程序退出时关闭代理。
         """
         logger.info("关闭代理服务器...")
-        systemutils.Runner(f"{os.path.join(os.getcwd(), 'resources/singbox.exe')}").terminate()
+        systemutils.Runner(f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path}").terminate()
         logger.info("代理服务器已关闭")

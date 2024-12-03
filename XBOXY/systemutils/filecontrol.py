@@ -1,12 +1,26 @@
 import pathlib
 import orjson
+import os
+import sys
 from XBOXY.log import logger
 
 class File(object):
     
     def __init__(self, path: pathlib.Path):
-        self.path = path
+        if self.is_nuitka():
+            self.path = pathlib.Path(sys.executable).parent / path
+        else:
+            self.path = path
+            
         self.is_exist = self.exists()
+        
+    def is_nuitka(self) -> bool:
+        """
+        Check if the script is compiled with Nuitka.
+        """
+        is_nuitka = "__compiled__" in globals()
+        is_nuitka2 = "NUITKA_ONEFILE_PARENT" in os.environ
+        return is_nuitka or is_nuitka2
 
     def exists(self):
         return self.path.exists()
@@ -26,10 +40,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class JsonFile:
+class JsonFile(File):
     def __init__(self, path: pathlib.Path):
-        self.path = path
-        self.is_exist = self.exists()
+        super().__init__(path)
 
     def exists(self):
         return self.path.exists()
