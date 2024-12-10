@@ -34,7 +34,7 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         p.locator('button[type="submit"]').click()
         
         p.wait_for_load_state("networkidle", timeout=0)
-
+        
 
         if self.element_exists(p, 'div[id="i0116Error"]'):
             logger.warning("账号不存在")

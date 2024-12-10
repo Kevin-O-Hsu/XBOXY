@@ -51,7 +51,7 @@ logger.info(update_note)
 
 try:
     xboxy = XBOXY()
-    output_file = JsonFile(pathlib.Path("output.json"), True)
+    output_file = JsonFile(pathlib.Path("output.json"), needed=True)
     output_file.create_file()
     xboxy.initialize()
     xboxy.run()

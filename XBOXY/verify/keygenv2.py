@@ -53,7 +53,7 @@ for _ in range(1):
     
     activation_code = \
         {
-            "expiretime_msonly_ms" : convert_to_milliseconds("7d"),
+            "expiretime_msonly_ms" : convert_to_milliseconds("1d"),
             "author" : "GreshAnt",
             "randompart" : generate_random_string(64)
         }

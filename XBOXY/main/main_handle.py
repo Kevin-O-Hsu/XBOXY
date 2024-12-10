@@ -26,7 +26,7 @@ class XBOXY:
         初始化程序，完成身份验证和代理连接。
         """
         logger.info("开始身份验证...")
-        config_file = systemutils.JsonFile(pathlib.Path("config/config.json"))
+        config_file = systemutils.JsonFile(pathlib.Path("config/config.json"), needed=True)
         
         # 这里只是验证文件的格式是否正确，并确保同意了eula
         if not config_file.is_exist:  # 修正用法为属性访问
