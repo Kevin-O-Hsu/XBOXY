@@ -6,8 +6,19 @@ from XBOXY.log import logger
 
 class File(object):
     
-    def __init__(self, path: pathlib.Path):
-        if self.is_nuitka():
+    def __init__(self, path: pathlib.Path, needed: bool = False):
+        """
+        Initialize a File object with a given path.
+
+        If the script is compiled with Nuitka and the 'needed' flag is False, 
+        the path is adjusted to point to the directory containing the executable.
+
+        Args:
+            path (pathlib.Path): The path of the file.
+            needed (bool, optional): A flag indicating if the path adjustment 
+                                    for Nuitka is necessary. Defaults to False.
+        """
+        if self.is_nuitka() and not needed:
             self.path = pathlib.Path(sys.executable).parent / path
         else:
             self.path = path
@@ -32,22 +43,23 @@ class File(object):
         return self
     
     
-    
-import pathlib
-import orjson
-import logging
-
-logger = logging.getLogger(__name__)
-
 
 class JsonFile(File):
-    def __init__(self, path: pathlib.Path):
-        super().__init__(path)
+    def __init__(self, path: pathlib.Path, needed: bool = False):
+        super().__init__(path, needed)
 
     def exists(self):
         return self.path.exists()
 
     def create_file(self):
+        """
+        Create the JSON file, if not exist.
+
+        If the parent directory of the file does not exist, it will be created.
+
+        Returns:
+            self
+        """
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.path.touch(exist_ok=True)
         logger.info(f"创建JSON文件: {self.path}")

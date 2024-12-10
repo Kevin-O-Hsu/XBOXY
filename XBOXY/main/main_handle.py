@@ -163,5 +163,5 @@ class XBOXY:
         程序退出时关闭代理。
         """
         logger.info("关闭代理服务器...")
-        systemutils.Runner(f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path}").terminate()
+        systemutils.Runner(path=f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path}").terminate()
         logger.info("代理服务器已关闭")
