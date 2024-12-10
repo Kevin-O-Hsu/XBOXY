@@ -22,7 +22,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4  # 设置 Python 版本为 3.13.0
       with:
-        python-version: 3.13.0
+        python-version: 3.12.5
 
     - name: Install dependencies
       run: |
