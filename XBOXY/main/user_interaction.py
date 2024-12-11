@@ -8,8 +8,8 @@ from ..systemutils import JsonFile
 logger = log.logger
 
 version = 'v1.0.3'
-release_date = '2024-12-10'
-build = '2'
+release_date = '2024-12-11'
+build = '3'
 update_note = \
     """
     v1.0.3 b1
@@ -23,6 +23,11 @@ update_note = \
     
     v1.0.3 b2
     * 修复了一些已知问题
+    
+    v1.0.3 b3
+    * 修复了部分已知问题
+    * 优化了部分代码
+    
     """
 print(r"""
         

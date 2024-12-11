@@ -8,7 +8,7 @@ user_input = input("expiration YYYY-MM-DD HH:MM>")
 dt = datetime.strptime(user_input, "%Y-%m-%d %H:%M")
 timestamp = int(time.mktime(dt.timetuple())*1000)
 
-from .encrypt import AsymmetricEncryption
+from encrypt import AsymmetricEncryption
 
 
 def generate_random_string(length=10):

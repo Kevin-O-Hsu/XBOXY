@@ -5,7 +5,7 @@ import random
 import string
 
 
-from .encrypt import AsymmetricEncryption
+from encrypt import AsymmetricEncryption
 
 
 def generate_random_string(length=10):
