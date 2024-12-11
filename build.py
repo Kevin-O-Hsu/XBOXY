@@ -31,9 +31,9 @@ for x in get_all_file_relative_paths('osrcd'):
 all_str = ' '.join(all_list)
 
 
-# 要运行的 PowerShell 命令
-with open('ar.txt', 'w') as f:
-    f.write(all_str)
+# # 要运行的 PowerShell 命令
+# with open('ar.txt', 'w') as f:
+#     f.write(all_str)
     
 
 
