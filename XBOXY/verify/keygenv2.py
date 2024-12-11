@@ -1,9 +1,10 @@
-from encrypt import AsymmetricEncryption
 import json
 import pyperclip
 import random
 import string
 import re
+
+from .encrypt import AsymmetricEncryption
 
 
 def convert_to_milliseconds(time_str):

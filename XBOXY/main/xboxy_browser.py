@@ -1,9 +1,8 @@
-from log import logger
-import browser
 import re
 
-
-
+from .. import browser
+from .. import log
+logger = log.logger
 
 class XBOXYBrowser(browser.ChromiumBrowser):
     """

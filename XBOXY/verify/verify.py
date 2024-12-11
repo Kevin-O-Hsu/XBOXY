@@ -1,8 +1,10 @@
-from XBOXY.log import logger
 import platform
 import wmi
 import hashlib
 import requests
+
+from .. import log
+logger = log.logger
 
 class Collection:
     

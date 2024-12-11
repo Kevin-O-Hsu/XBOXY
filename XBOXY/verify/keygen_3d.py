@@ -1,9 +1,12 @@
-from encrypt import AsymmetricEncryption
 import time
 import json
 import pyperclip
 import random
 import string
+
+
+from .encrypt import AsymmetricEncryption
+
 
 def generate_random_string(length=10):
     characters = string.ascii_letters + string.digits  # 包含大小写字母和数字

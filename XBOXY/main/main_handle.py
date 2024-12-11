@@ -1,6 +1,3 @@
-from log import logger
-import verify
-import systemutils
 import pathlib
 import sys
 import os
@@ -8,9 +5,14 @@ import re
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
-from main.xboxy_browser import XBOXYBrowser
 
 
+from .xboxy_browser import XBOXYBrowser
+from .. import log
+from .. import systemutils
+from .. import verify
+
+logger = log.logger
 console = Console()
 
 class XBOXY:

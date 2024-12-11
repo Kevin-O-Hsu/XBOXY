@@ -1,4 +1,3 @@
-from encrypt import AsymmetricEncryption
 import time
 from datetime import datetime
 import json
@@ -8,6 +7,9 @@ import string
 user_input = input("expiration YYYY-MM-DD HH:MM>")
 dt = datetime.strptime(user_input, "%Y-%m-%d %H:%M")
 timestamp = int(time.mktime(dt.timetuple())*1000)
+
+from .encrypt import AsymmetricEncryption
+
 
 def generate_random_string(length=10):
     characters = string.ascii_letters + string.digits  # 包含大小写字母和数字

@@ -38,7 +38,7 @@ with open('ar.txt', 'w') as f:
 
 
 
-command = f'nuitka --onefile --include-data-dir=resources=resources --include-data-file=resources/singbox.exe=resources/singbox.exe --show-scons --windows-uac-admin --user-package-configuration-file=nuitka-playwright.yml --output-dir=cache --standalone XBOXY/xboxy.py '
+command = f'nuitka --onefile --include-data-dir=resources=resources --include-data-file=resources/singbox.exe=resources/singbox.exe --show-scons --windows-uac-admin --user-package-configuration-file=nuitka-playwright.yml --output-dir=cache --standalone xboxy.py '
 
 
 process = subprocess.Popen(["powershell", "-Command", command], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, cwd=working_directory, bufsize=1)

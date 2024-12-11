@@ -2,7 +2,10 @@ import pathlib
 import orjson
 import os
 import sys
-from XBOXY.log import logger
+
+from .. import log
+logger = log.logger
+
 
 class File(object):
     

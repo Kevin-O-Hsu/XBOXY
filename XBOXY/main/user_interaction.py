@@ -1,7 +1,11 @@
-from log import logger
-from main.main_handle import XBOXY
-from systemutils import JsonFile
 import pathlib
+
+
+from .main_handle import XBOXY
+from .. import log
+from ..systemutils import JsonFile
+
+logger = log.logger
 
 version = 'v1.0.3'
 release_date = '2024-12-10'
