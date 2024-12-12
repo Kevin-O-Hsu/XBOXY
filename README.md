@@ -102,13 +102,6 @@ playwright install
 
 如需帮助或报告问题，请联系项目维护者：
 
-- **邮箱**: support@example.com
-- **GitHub**: [项目仓库](https://github.com/yourusername/XBOXY)
+- **邮箱**: vmcgresh@proton.me
+- **GitHub**: [项目仓库](https://github.com/Kevin-O-Hsu/XBOXY)
 
-### 许可证
-
-本项目采用 MIT 许可证，详情参见 [LICENSE](LICENSE) 文件。
-
----
-
-希望这个 README 对您有所帮助！如果有任何问题或建议，请随时联系。
