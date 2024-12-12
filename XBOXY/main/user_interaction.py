@@ -1,5 +1,5 @@
 import pathlib
-
+import sys
 
 from .main_handle import XBOXY
 from .. import log
@@ -8,7 +8,7 @@ from ..systemutils import JsonFile
 logger = log.logger
 
 version = 'v1.0.3'
-release_date = '2024-12-11'
+release_date = '2024-12-12'
 build = '3'
 update_note = \
     """
@@ -74,3 +74,4 @@ except Exception as e:
 finally:
     xboxy.cleanup()
     input("按回车退出...")
+    sys.exit(0)

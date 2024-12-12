@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
-from pem import CertificateGenerator
-from encrypt import AsymmetricEncryption
-from database import DatabaseManager
+from .pem import CertificateGenerator
+from .encrypt import AsymmetricEncryption
+from .database import DatabaseManager
 import json
 import time
 
