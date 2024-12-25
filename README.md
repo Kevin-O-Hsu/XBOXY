@@ -34,18 +34,18 @@ XBOXY/
 │   ├── ny.json
 │   └── fix_ny.json
 ├── config/
-│   └── config.json
-└── logs/
-    └── log.txt
+    └── config.json
+
 ```
 
 ### 安装依赖
 
 确保安装以下依赖：
 
+CPython >= 3.11 
+
 ```bash
-pip install playwright rich
-playwright install
+pip install -r requirements.txt
 ```
 
 ### 配置文件
@@ -76,14 +76,12 @@ playwright install
 
 ### 使用说明
 
-1. **运行主程序**:
+  **运行主程序**
 
    ```bash
-   python main/user_interaction.py
+   python xboxy.py
    ```
 
-2. **查看日志**:
-   - 日志文件位于 `logs/log.txt`，记录了程序的运行情况和错误信息。
 
 ### 注意事项
 
