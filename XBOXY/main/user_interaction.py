@@ -80,3 +80,5 @@ finally:
     xboxy.cleanup()
     input("按回车退出...")
     sys.exit(0)
+    
+    

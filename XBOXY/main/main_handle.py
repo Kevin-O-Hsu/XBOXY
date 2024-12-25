@@ -1,3 +1,6 @@
+# The `XBOXY` class is a program class responsible for managing multiple accounts, initializing
+# authentication and proxy connection, and providing methods for loading accounts from files or manual
+# input.
 import pathlib
 import sys
 import os

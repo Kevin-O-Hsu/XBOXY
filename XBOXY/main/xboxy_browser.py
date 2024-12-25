@@ -1,5 +1,4 @@
 import re
-import time
 from .. import browser
 from .. import log
 logger = log.logger
@@ -15,7 +14,7 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         logger.info(f'当前处理的账号是{self.email}')
         super().__init__()
     
-    def run(self):
+    def run(self) -> list[str]:
         """
         模拟浏览器登录流程并获取可用链接。
         """
