@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright
+from playwright.sync_api import Page
 import random
 import string
 import pathlib
@@ -15,11 +16,10 @@ class ChromiumBrowser(object):
                 executable_path=pathlib.Path("osrcd/chromium-1140/chrome-win/chrome.exe")
                 )
                 
-            self.context = self.browser.new_context()
+            self.set_context()
             self.result_data = self.run()
 
-    def reset_context(self):
-        self.context.close()
+    def set_context(self):
         self.context = self.browser.new_context(
                 user_agent=self._generate_random_user_agent(),
                 geolocation=self._generate_random_geolocation(),
@@ -29,6 +29,11 @@ class ChromiumBrowser(object):
                 device_scale_factor=2,
         )
         return self
+    
+    
+    def reset_context(self):
+        self.context.close()
+        return self.set_context()
         
         
         
@@ -79,8 +84,15 @@ class ChromiumBrowser(object):
         # 从字符集中随机选择字符并生成字符串
         return ''.join(random.choice(characters) for _ in range(length))
     
-    def element_exists(self, page, selector):
-        return page.locator(selector).count() > 0
+    def element_exists(self, page: Page, selector, locate_method="locator") -> bool:
+        match locate_method:
+            case "locator":
+                return page.locator(selector).count() > 0
+            case "role":
+                return page.get_by_role(selector).count() > 0
+            case "text":
+                return page.get_by_text(selector).count() > 0
+        return False
     
 
     def wait_for_change(self, page, selector, expected_value):

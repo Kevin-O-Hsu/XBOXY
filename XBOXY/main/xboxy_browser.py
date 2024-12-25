@@ -1,5 +1,5 @@
 import re
-
+import time
 from .. import browser
 from .. import log
 logger = log.logger
@@ -34,15 +34,21 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         
         p.wait_for_load_state("networkidle", timeout=0)
         
-
-        if self.element_exists(p, 'div[id="i0116Error"]'):
-            logger.warning("账号不存在")
-            return []
         
         if self.element_exists(p, 'input[id="idTxtBx_OTC_Password"]'):
             p.locator('span[role="button"][id="idA_PWD_SwitchToCredPicker"]').click()
             p.locator('#tileList > div:nth-child(2) > div > button').click()
             p.wait_for_load_state("networkidle", timeout=0)
+            
+        p.wait_for_load_state("networkidle", timeout=0)
+        
+        while(True):
+            if not self.element_exists(p, 'input[id="i0118"]'):
+                if self.element_exists(p, 'alert', 'role'):
+                    logger.warning("无法登录")
+                    return []
+            else:
+                break
         
         p.locator('input[id="i0118"]').fill(self.password)
         self.wait_for_change(p, 'input[id="i0118"]', self.password)

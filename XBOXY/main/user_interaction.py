@@ -8,8 +8,8 @@ from ..systemutils import JsonFile
 logger = log.logger
 
 version = 'v1.0.3'
-release_date = '2024-12-12'
-build = '3'
+release_date = '2024-12-23'
+build = '4'
 update_note = \
     """
     v1.0.3 b1
@@ -27,6 +27,11 @@ update_note = \
     v1.0.3 b3
     * 修复了部分已知问题
     * 优化了部分代码
+    
+    v1.0.3 b4
+    * 修复了输入账户后一直卡住的问题
+    * 增加了发包的随机性，不易检测出是机器人
+    * 修复了一些已知问题
     
     """
 print(r"""
