@@ -32,7 +32,7 @@ jobs:
     - name: Run PowerShell Commands
       shell: pwsh
       run: |
-        nuitka --no-progressbar --quiet --assume-yes-for-downloads --playwright-include-browser=none --onefile --include-data-dir=resources=resources --include-data-file=resources/singbox.exe=resources/singbox.exe --windows-uac-admin --output-dir=build/cache --standalone xboxy.py
+        nuitka --no-progressbar --assume-yes-for-downloads --playwright-include-browser=none --onefile --include-data-dir=resources=resources --include-data-file=resources/singbox.exe=resources/singbox.exe --windows-uac-admin --output-dir=build/cache --standalone xboxy.py
         mkdir output
         ./tools/wget.exe -o osrcd.7z https://gitee.com/xu-ruoteng/xboxy/releases/download/v1.0.1/osrcd.7z
         Remove-Item -Path "osrcd.7z"
