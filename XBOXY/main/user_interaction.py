@@ -1,5 +1,7 @@
 import pathlib
 import sys
+import os
+
 
 from .main_handle import XBOXY
 from .. import log
@@ -79,6 +81,6 @@ except Exception as e:
 finally:
     xboxy.cleanup()
     input("按回车退出...")
-    sys.exit(0)
-    
+    os._exit(0)
+
     

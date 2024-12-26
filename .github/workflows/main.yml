@@ -1,0 +1,42 @@
+name: Build_with_nuitka
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.13.1
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.13.1
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        choco install 7zip --no-progress -y
+
+    - name: Run PowerShell Commands
+      shell: pwsh
+      run: |
+        nuitka --playwright-include-browser=none --onefile --include-data-dir=resources=resources --include-data-file=resources/singbox.exe=resources/singbox.exe --show-scons --windows-uac-admin --output-dir=build/cache --standalone xboxy.py
+        mkdir output
+        Copy-Item -Path "osrcd" -Destination "output/" -Recurse -Force
+        Copy-Item -Path "build/cache/xboxy.exe" -Destination "output/" -Recurse -Force
+        7z a -t7z -mx=9 XBOXY.7z output/
+
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-output
+        path: XBOXY.7z
