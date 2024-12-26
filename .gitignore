@@ -10,13 +10,11 @@ release
 osrcd
 osrcd/*
 release/*
-tools/*
 cache/*
 cnk/*
 config/*
 data/*
 venv/*
 resources
-tools
 bfg.jar
 .vscode
