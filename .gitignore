@@ -1,7 +1,6 @@
 __pycache__
 .vscode
-xboxy.onefile-build
-xboxy.dist
+cache
 cnk
 config
 data
