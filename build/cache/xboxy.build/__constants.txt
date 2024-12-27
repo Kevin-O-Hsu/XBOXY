@@ -1,0 +1,1588 @@
+{
+  "__bytecode.const": {
+    "input_size": 8895120,
+    "blob_name": ".bytecode",
+    "blob_size": 8860672
+  },
+  "__constants.const": {
+    "input_size": 2186,
+    "blob_name": "",
+    "blob_size": 859
+  },
+  "module.XBOXY.browser.chromium.const": {
+    "input_size": 9247,
+    "blob_name": "XBOXY.browser.chromium",
+    "blob_size": 7657
+  },
+  "module.XBOXY.browser.const": {
+    "input_size": 593,
+    "blob_name": "XBOXY.browser",
+    "blob_size": 333
+  },
+  "module.XBOXY.const": {
+    "input_size": 415,
+    "blob_name": "XBOXY",
+    "blob_size": 209
+  },
+  "module.XBOXY.log.const": {
+    "input_size": 561,
+    "blob_name": "XBOXY.log",
+    "blob_size": 289
+  },
+  "module.XBOXY.log.logger.const": {
+    "input_size": 562,
+    "blob_name": "XBOXY.log.logger",
+    "blob_size": 336
+  },
+  "module.XBOXY.main.const": {
+    "input_size": 521,
+    "blob_name": "XBOXY.main",
+    "blob_size": 275
+  },
+  "module.XBOXY.main.main_handle.const": {
+    "input_size": 5023,
+    "blob_name": "XBOXY.main.main_handle",
+    "blob_size": 3116
+  },
+  "module.XBOXY.main.user_interaction.const": {
+    "input_size": 3073,
+    "blob_name": "XBOXY.main.user_interaction",
+    "blob_size": 2423
+  },
+  "module.XBOXY.main.xboxy_browser.const": {
+    "input_size": 3622,
+    "blob_name": "XBOXY.main.xboxy_browser",
+    "blob_size": 2334
+  },
+  "module.XBOXY.systemutils.const": {
+    "input_size": 670,
+    "blob_name": "XBOXY.systemutils",
+    "blob_size": 380
+  },
+  "module.XBOXY.systemutils.filecontrol.const": {
+    "input_size": 7610,
+    "blob_name": "XBOXY.systemutils.filecontrol",
+    "blob_size": 6084
+  },
+  "module.XBOXY.systemutils.syscontrol.const": {
+    "input_size": 2445,
+    "blob_name": "XBOXY.systemutils.syscontrol",
+    "blob_size": 1691
+  },
+  "module.XBOXY.verify.const": {
+    "input_size": 601,
+    "blob_name": "XBOXY.verify",
+    "blob_size": 351
+  },
+  "module.XBOXY.verify.verify.const": {
+    "input_size": 5084,
+    "blob_name": "XBOXY.verify.verify",
+    "blob_size": 3951
+  },
+  "module.__main__.const": {
+    "input_size": 730,
+    "blob_name": "__main__",
+    "blob_size": 421
+  },
+  "module.__parents_main__.const": {
+    "input_size": 785,
+    "blob_name": "__parents_main__",
+    "blob_size": 398
+  },
+  "module.certifi.const": {
+    "input_size": 556,
+    "blob_name": "certifi",
+    "blob_size": 291
+  },
+  "module.certifi.core.const": {
+    "input_size": 1069,
+    "blob_name": "certifi.core",
+    "blob_size": 579
+  },
+  "module.charset_normalizer.api.const": {
+    "input_size": 8687,
+    "blob_name": "charset_normalizer.api",
+    "blob_size": 8150
+  },
+  "module.charset_normalizer.cd.const": {
+    "input_size": 6502,
+    "blob_name": "charset_normalizer.cd",
+    "blob_size": 5497
+  },
+  "module.charset_normalizer.const": {
+    "input_size": 2055,
+    "blob_name": "charset_normalizer",
+    "blob_size": 1657
+  },
+  "module.charset_normalizer.constant.const": {
+    "input_size": 24371,
+    "blob_name": "charset_normalizer.constant",
+    "blob_size": 18334
+  },
+  "module.charset_normalizer.legacy.const": {
+    "input_size": 1730,
+    "blob_name": "charset_normalizer.legacy",
+    "blob_size": 1261
+  },
+  "module.charset_normalizer.models.const": {
+    "input_size": 7877,
+    "blob_name": "charset_normalizer.models",
+    "blob_size": 5871
+  },
+  "module.charset_normalizer.utils.const": {
+    "input_size": 5938,
+    "blob_name": "charset_normalizer.utils",
+    "blob_size": 4381
+  },
+  "module.charset_normalizer.version.const": {
+    "input_size": 390,
+    "blob_name": "charset_normalizer.version",
+    "blob_size": 197
+  },
+  "module.colorama.ansi.const": {
+    "input_size": 2470,
+    "blob_name": "colorama.ansi",
+    "blob_size": 1123
+  },
+  "module.colorama.ansitowin32.const": {
+    "input_size": 5715,
+    "blob_name": "colorama.ansitowin32",
+    "blob_size": 3634
+  },
+  "module.colorama.const": {
+    "input_size": 747,
+    "blob_name": "colorama",
+    "blob_size": 481
+  },
+  "module.colorama.initialise.const": {
+    "input_size": 1242,
+    "blob_name": "colorama.initialise",
+    "blob_size": 741
+  },
+  "module.colorama.win32.const": {
+    "input_size": 3055,
+    "blob_name": "colorama.win32",
+    "blob_size": 1784
+  },
+  "module.colorama.winterm.const": {
+    "input_size": 3343,
+    "blob_name": "colorama.winterm",
+    "blob_size": 1948
+  },
+  "module.commctrl.const": {
+    "input_size": 45527,
+    "blob_name": "commctrl",
+    "blob_size": 24819
+  },
+  "module.cryptography.__about__.const": {
+    "input_size": 502,
+    "blob_name": "cryptography.__about__",
+    "blob_size": 284
+  },
+  "module.cryptography.const": {
+    "input_size": 688,
+    "blob_name": "cryptography",
+    "blob_size": 403
+  },
+  "module.cryptography.exceptions.const": {
+    "input_size": 1373,
+    "blob_name": "cryptography.exceptions",
+    "blob_size": 852
+  },
+  "module.cryptography.hazmat._oid.const": {
+    "input_size": 11428,
+    "blob_name": "cryptography.hazmat._oid",
+    "blob_size": 6676
+  },
+  "module.cryptography.hazmat.backends.const": {
+    "input_size": 871,
+    "blob_name": "cryptography.hazmat.backends",
+    "blob_size": 526
+  },
+  "module.cryptography.hazmat.backends.openssl.backend.const": {
+    "input_size": 6462,
+    "blob_name": "cryptography.hazmat.backends.openssl.backend",
+    "blob_size": 4246
+  },
+  "module.cryptography.hazmat.backends.openssl.const": {
+    "input_size": 957,
+    "blob_name": "cryptography.hazmat.backends.openssl",
+    "blob_size": 609
+  },
+  "module.cryptography.hazmat.bindings.const": {
+    "input_size": 683,
+    "blob_name": "cryptography.hazmat.bindings",
+    "blob_size": 410
+  },
+  "module.cryptography.hazmat.bindings.openssl._conditional.const": {
+    "input_size": 3851,
+    "blob_name": "cryptography.hazmat.bindings.openssl._conditional",
+    "blob_size": 2847
+  },
+  "module.cryptography.hazmat.bindings.openssl.binding.const": {
+    "input_size": 3300,
+    "blob_name": "cryptography.hazmat.bindings.openssl.binding",
+    "blob_size": 2284
+  },
+  "module.cryptography.hazmat.bindings.openssl.const": {
+    "input_size": 821,
+    "blob_name": "cryptography.hazmat.bindings.openssl",
+    "blob_size": 521
+  },
+  "module.cryptography.hazmat.const": {
+    "input_size": 583,
+    "blob_name": "cryptography.hazmat",
+    "blob_size": 324
+  },
+  "module.cryptography.hazmat.decrepit.ciphers.algorithms.const": {
+    "input_size": 1955,
+    "blob_name": "cryptography.hazmat.decrepit.ciphers.algorithms",
+    "blob_size": 1087
+  },
+  "module.cryptography.hazmat.decrepit.ciphers.const": {
+    "input_size": 847,
+    "blob_name": "cryptography.hazmat.decrepit.ciphers",
+    "blob_size": 534
+  },
+  "module.cryptography.hazmat.decrepit.const": {
+    "input_size": 709,
+    "blob_name": "cryptography.hazmat.decrepit",
+    "blob_size": 423
+  },
+  "module.cryptography.hazmat.primitives._asymmetric.const": {
+    "input_size": 943,
+    "blob_name": "cryptography.hazmat.primitives._asymmetric",
+    "blob_size": 569
+  },
+  "module.cryptography.hazmat.primitives._cipheralgorithm.const": {
+    "input_size": 1840,
+    "blob_name": "cryptography.hazmat.primitives._cipheralgorithm",
+    "blob_size": 1173
+  },
+  "module.cryptography.hazmat.primitives._serialization.const": {
+    "input_size": 3649,
+    "blob_name": "cryptography.hazmat.primitives._serialization",
+    "blob_size": 2923
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.const": {
+    "input_size": 851,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric",
+    "blob_size": 551
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.dh.const": {
+    "input_size": 3648,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.dh",
+    "blob_size": 2716
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.dsa.const": {
+    "input_size": 3988,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.dsa",
+    "blob_size": 3058
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.ec.const": {
+    "input_size": 7833,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.ec",
+    "blob_size": 5711
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.ed25519.const": {
+    "input_size": 3392,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.ed25519",
+    "blob_size": 2556
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.ed448.const": {
+    "input_size": 3371,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.ed448",
+    "blob_size": 2510
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.padding.const": {
+    "input_size": 2824,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.padding",
+    "blob_size": 1846
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.rsa.const": {
+    "input_size": 6068,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.rsa",
+    "blob_size": 4766
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.types.const": {
+    "input_size": 2048,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.types",
+    "blob_size": 1348
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.utils.const": {
+    "input_size": 1076,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.utils",
+    "blob_size": 655
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.x25519.const": {
+    "input_size": 3290,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.x25519",
+    "blob_size": 2506
+  },
+  "module.cryptography.hazmat.primitives.asymmetric.x448.const": {
+    "input_size": 3254,
+    "blob_name": "cryptography.hazmat.primitives.asymmetric.x448",
+    "blob_size": 2456
+  },
+  "module.cryptography.hazmat.primitives.ciphers.algorithms.const": {
+    "input_size": 3558,
+    "blob_name": "cryptography.hazmat.primitives.ciphers.algorithms",
+    "blob_size": 2474
+  },
+  "module.cryptography.hazmat.primitives.ciphers.base.const": {
+    "input_size": 3944,
+    "blob_name": "cryptography.hazmat.primitives.ciphers.base",
+    "blob_size": 2851
+  },
+  "module.cryptography.hazmat.primitives.ciphers.const": {
+    "input_size": 1349,
+    "blob_name": "cryptography.hazmat.primitives.ciphers",
+    "blob_size": 1036
+  },
+  "module.cryptography.hazmat.primitives.ciphers.modes.const": {
+    "input_size": 5007,
+    "blob_name": "cryptography.hazmat.primitives.ciphers.modes",
+    "blob_size": 3604
+  },
+  "module.cryptography.hazmat.primitives.const": {
+    "input_size": 693,
+    "blob_name": "cryptography.hazmat.primitives",
+    "blob_size": 420
+  },
+  "module.cryptography.hazmat.primitives.constant_time.const": {
+    "input_size": 488,
+    "blob_name": "cryptography.hazmat.primitives.constant_time",
+    "blob_size": 275
+  },
+  "module.cryptography.hazmat.primitives.hashes.const": {
+    "input_size": 3948,
+    "blob_name": "cryptography.hazmat.primitives.hashes",
+    "blob_size": 2504
+  },
+  "module.cryptography.hazmat.primitives.serialization.base.const": {
+    "input_size": 711,
+    "blob_name": "cryptography.hazmat.primitives.serialization.base",
+    "blob_size": 432
+  },
+  "module.cryptography.hazmat.primitives.serialization.const": {
+    "input_size": 2321,
+    "blob_name": "cryptography.hazmat.primitives.serialization",
+    "blob_size": 2229
+  },
+  "module.cryptography.hazmat.primitives.serialization.ssh.const": {
+    "input_size": 25109,
+    "blob_name": "cryptography.hazmat.primitives.serialization.ssh",
+    "blob_size": 19019
+  },
+  "module.cryptography.utils.const": {
+    "input_size": 3166,
+    "blob_name": "cryptography.utils",
+    "blob_size": 2088
+  },
+  "module.cryptography.x509.base.const": {
+    "input_size": 14790,
+    "blob_name": "cryptography.x509.base",
+    "blob_size": 12049
+  },
+  "module.cryptography.x509.certificate_transparency.const": {
+    "input_size": 1333,
+    "blob_name": "cryptography.x509.certificate_transparency",
+    "blob_size": 826
+  },
+  "module.cryptography.x509.const": {
+    "input_size": 8948,
+    "blob_name": "cryptography.x509",
+    "blob_size": 7985
+  },
+  "module.cryptography.x509.extensions.const": {
+    "input_size": 38743,
+    "blob_name": "cryptography.x509.extensions",
+    "blob_size": 29181
+  },
+  "module.cryptography.x509.general_name.const": {
+    "input_size": 5033,
+    "blob_name": "cryptography.x509.general_name",
+    "blob_size": 3416
+  },
+  "module.cryptography.x509.name.const": {
+    "input_size": 10609,
+    "blob_name": "cryptography.x509.name",
+    "blob_size": 7175
+  },
+  "module.cryptography.x509.oid.const": {
+    "input_size": 934,
+    "blob_name": "cryptography.x509.oid",
+    "blob_size": 916
+  },
+  "module.cryptography.x509.verification.const": {
+    "input_size": 847,
+    "blob_name": "cryptography.x509.verification",
+    "blob_size": 514
+  },
+  "module.greenlet.const": {
+    "input_size": 1233,
+    "blob_name": "greenlet",
+    "blob_size": 885
+  },
+  "module.idna.const": {
+    "input_size": 1295,
+    "blob_name": "idna",
+    "blob_size": 1142
+  },
+  "module.idna.core.const": {
+    "input_size": 5903,
+    "blob_name": "idna.core",
+    "blob_size": 3821
+  },
+  "module.idna.idnadata.const": {
+    "input_size": 28492,
+    "blob_name": "idna.idnadata",
+    "blob_size": 22387
+  },
+  "module.idna.intranges.const": {
+    "input_size": 1564,
+    "blob_name": "idna.intranges",
+    "blob_size": 1058
+  },
+  "module.idna.package_data.const": {
+    "input_size": 277,
+    "blob_name": "idna.package_data",
+    "blob_size": 137
+  },
+  "module.idna.uts46data.const": {
+    "input_size": 99619,
+    "blob_name": "idna.uts46data",
+    "blob_size": 90808
+  },
+  "module.loguru._asyncio_loop.const": {
+    "input_size": 490,
+    "blob_name": "loguru._asyncio_loop",
+    "blob_size": 289
+  },
+  "module.loguru._better_exceptions.const": {
+    "input_size": 9562,
+    "blob_name": "loguru._better_exceptions",
+    "blob_size": 6384
+  },
+  "module.loguru._colorama.const": {
+    "input_size": 1373,
+    "blob_name": "loguru._colorama",
+    "blob_size": 841
+  },
+  "module.loguru._colorizer.const": {
+    "input_size": 8014,
+    "blob_name": "loguru._colorizer",
+    "blob_size": 4573
+  },
+  "module.loguru._contextvars.const": {
+    "input_size": 348,
+    "blob_name": "loguru._contextvars",
+    "blob_size": 189
+  },
+  "module.loguru._ctime_functions.const": {
+    "input_size": 906,
+    "blob_name": "loguru._ctime_functions",
+    "blob_size": 617
+  },
+  "module.loguru._datetime.const": {
+    "input_size": 4421,
+    "blob_name": "loguru._datetime",
+    "blob_size": 2255
+  },
+  "module.loguru._defaults.const": {
+    "input_size": 3197,
+    "blob_name": "loguru._defaults",
+    "blob_size": 2142
+  },
+  "module.loguru._error_interceptor.const": {
+    "input_size": 1122,
+    "blob_name": "loguru._error_interceptor",
+    "blob_size": 668
+  },
+  "module.loguru._file_sink.const": {
+    "input_size": 7408,
+    "blob_name": "loguru._file_sink",
+    "blob_size": 4548
+  },
+  "module.loguru._filters.const": {
+    "input_size": 572,
+    "blob_name": "loguru._filters",
+    "blob_size": 303
+  },
+  "module.loguru._get_frame.const": {
+    "input_size": 501,
+    "blob_name": "loguru._get_frame",
+    "blob_size": 253
+  },
+  "module.loguru._handler.const": {
+    "input_size": 5294,
+    "blob_name": "loguru._handler",
+    "blob_size": 3135
+  },
+  "module.loguru._locks_machinery.const": {
+    "input_size": 698,
+    "blob_name": "loguru._locks_machinery",
+    "blob_size": 361
+  },
+  "module.loguru._logger.const": {
+    "input_size": 79553,
+    "blob_name": "loguru._logger",
+    "blob_size": 74905
+  },
+  "module.loguru._recattrs.const": {
+    "input_size": 2172,
+    "blob_name": "loguru._recattrs",
+    "blob_size": 1271
+  },
+  "module.loguru._simple_sinks.const": {
+    "input_size": 2933,
+    "blob_name": "loguru._simple_sinks",
+    "blob_size": 1658
+  },
+  "module.loguru._string_parsers.const": {
+    "input_size": 3215,
+    "blob_name": "loguru._string_parsers",
+    "blob_size": 1992
+  },
+  "module.loguru.const": {
+    "input_size": 1082,
+    "blob_name": "loguru",
+    "blob_size": 616
+  },
+  "module.multiprocessing-postLoad.const": {
+    "input_size": 692,
+    "blob_name": "multiprocessing-postLoad",
+    "blob_size": 365
+  },
+  "module.multiprocessing-preLoad.const": {
+    "input_size": 471,
+    "blob_name": "multiprocessing-preLoad",
+    "blob_size": 227
+  },
+  "module.orjson.const": {
+    "input_size": 899,
+    "blob_name": "orjson",
+    "blob_size": 615
+  },
+  "module.playwright._impl._accessibility.const": {
+    "input_size": 1521,
+    "blob_name": "playwright._impl._accessibility",
+    "blob_size": 868
+  },
+  "module.playwright._impl._api_structures.const": {
+    "input_size": 4530,
+    "blob_name": "playwright._impl._api_structures",
+    "blob_size": 2521
+  },
+  "module.playwright._impl._artifact.const": {
+    "input_size": 2249,
+    "blob_name": "playwright._impl._artifact",
+    "blob_size": 1339
+  },
+  "module.playwright._impl._assertions.const": {
+    "input_size": 12736,
+    "blob_name": "playwright._impl._assertions",
+    "blob_size": 9765
+  },
+  "module.playwright._impl._browser.const": {
+    "input_size": 6189,
+    "blob_name": "playwright._impl._browser",
+    "blob_size": 4774
+  },
+  "module.playwright._impl._browser_context.const": {
+    "input_size": 16017,
+    "blob_name": "playwright._impl._browser_context",
+    "blob_size": 10468
+  },
+  "module.playwright._impl._browser_type.const": {
+    "input_size": 6653,
+    "blob_name": "playwright._impl._browser_type",
+    "blob_size": 5109
+  },
+  "module.playwright._impl._cdp_session.const": {
+    "input_size": 1568,
+    "blob_name": "playwright._impl._cdp_session",
+    "blob_size": 896
+  },
+  "module.playwright._impl._clock.const": {
+    "input_size": 1763,
+    "blob_name": "playwright._impl._clock",
+    "blob_size": 925
+  },
+  "module.playwright._impl._connection.const": {
+    "input_size": 11395,
+    "blob_name": "playwright._impl._connection",
+    "blob_size": 7165
+  },
+  "module.playwright._impl._console_message.const": {
+    "input_size": 1715,
+    "blob_name": "playwright._impl._console_message",
+    "blob_size": 996
+  },
+  "module.playwright._impl._dialog.const": {
+    "input_size": 1832,
+    "blob_name": "playwright._impl._dialog",
+    "blob_size": 1020
+  },
+  "module.playwright._impl._download.const": {
+    "input_size": 1596,
+    "blob_name": "playwright._impl._download",
+    "blob_size": 865
+  },
+  "module.playwright._impl._driver.const": {
+    "input_size": 1069,
+    "blob_name": "playwright._impl._driver",
+    "blob_size": 518
+  },
+  "module.playwright._impl._element_handle.const": {
+    "input_size": 7677,
+    "blob_name": "playwright._impl._element_handle",
+    "blob_size": 5239
+  },
+  "module.playwright._impl._errors.const": {
+    "input_size": 1367,
+    "blob_name": "playwright._impl._errors",
+    "blob_size": 804
+  },
+  "module.playwright._impl._event_context_manager.const": {
+    "input_size": 1203,
+    "blob_name": "playwright._impl._event_context_manager",
+    "blob_size": 681
+  },
+  "module.playwright._impl._fetch.const": {
+    "input_size": 7194,
+    "blob_name": "playwright._impl._fetch",
+    "blob_size": 4972
+  },
+  "module.playwright._impl._file_chooser.const": {
+    "input_size": 1529,
+    "blob_name": "playwright._impl._file_chooser",
+    "blob_size": 929
+  },
+  "module.playwright._impl._frame.const": {
+    "input_size": 13328,
+    "blob_name": "playwright._impl._frame",
+    "blob_size": 9312
+  },
+  "module.playwright._impl._glob.const": {
+    "input_size": 920,
+    "blob_name": "playwright._impl._glob",
+    "blob_size": 419
+  },
+  "module.playwright._impl._greenlets.const": {
+    "input_size": 1439,
+    "blob_name": "playwright._impl._greenlets",
+    "blob_size": 792
+  },
+  "module.playwright._impl._har_router.const": {
+    "input_size": 2775,
+    "blob_name": "playwright._impl._har_router",
+    "blob_size": 1780
+  },
+  "module.playwright._impl._helper.const": {
+    "input_size": 9840,
+    "blob_name": "playwright._impl._helper",
+    "blob_size": 5861
+  },
+  "module.playwright._impl._impl_to_api_mapping.const": {
+    "input_size": 2853,
+    "blob_name": "playwright._impl._impl_to_api_mapping",
+    "blob_size": 1706
+  },
+  "module.playwright._impl._input.const": {
+    "input_size": 2446,
+    "blob_name": "playwright._impl._input",
+    "blob_size": 1449
+  },
+  "module.playwright._impl._js_handle.const": {
+    "input_size": 4648,
+    "blob_name": "playwright._impl._js_handle",
+    "blob_size": 2450
+  },
+  "module.playwright._impl._json_pipe.const": {
+    "input_size": 2643,
+    "blob_name": "playwright._impl._json_pipe",
+    "blob_size": 1666
+  },
+  "module.playwright._impl._local_utils.const": {
+    "input_size": 3245,
+    "blob_name": "playwright._impl._local_utils",
+    "blob_size": 1948
+  },
+  "module.playwright._impl._locator.const": {
+    "input_size": 13089,
+    "blob_name": "playwright._impl._locator",
+    "blob_size": 9182
+  },
+  "module.playwright._impl._map.const": {
+    "input_size": 1110,
+    "blob_name": "playwright._impl._map",
+    "blob_size": 565
+  },
+  "module.playwright._impl._network.const": {
+    "input_size": 17348,
+    "blob_name": "playwright._impl._network",
+    "blob_size": 10993
+  },
+  "module.playwright._impl._object_factory.const": {
+    "input_size": 2957,
+    "blob_name": "playwright._impl._object_factory",
+    "blob_size": 1769
+  },
+  "module.playwright._impl._page.const": {
+    "input_size": 24556,
+    "blob_name": "playwright._impl._page",
+    "blob_size": 16704
+  },
+  "module.playwright._impl._playwright.const": {
+    "input_size": 2054,
+    "blob_name": "playwright._impl._playwright",
+    "blob_size": 1282
+  },
+  "module.playwright._impl._selectors.const": {
+    "input_size": 2550,
+    "blob_name": "playwright._impl._selectors",
+    "blob_size": 1599
+  },
+  "module.playwright._impl._set_input_files_helpers.const": {
+    "input_size": 3246,
+    "blob_name": "playwright._impl._set_input_files_helpers",
+    "blob_size": 2129
+  },
+  "module.playwright._impl._str_utils.const": {
+    "input_size": 1314,
+    "blob_name": "playwright._impl._str_utils",
+    "blob_size": 691
+  },
+  "module.playwright._impl._stream.const": {
+    "input_size": 1601,
+    "blob_name": "playwright._impl._stream",
+    "blob_size": 875
+  },
+  "module.playwright._impl._sync_base.const": {
+    "input_size": 4110,
+    "blob_name": "playwright._impl._sync_base",
+    "blob_size": 2437
+  },
+  "module.playwright._impl._tracing.const": {
+    "input_size": 3278,
+    "blob_name": "playwright._impl._tracing",
+    "blob_size": 1928
+  },
+  "module.playwright._impl._transport.const": {
+    "input_size": 3940,
+    "blob_name": "playwright._impl._transport",
+    "blob_size": 2276
+  },
+  "module.playwright._impl._video.const": {
+    "input_size": 1991,
+    "blob_name": "playwright._impl._video",
+    "blob_size": 1131
+  },
+  "module.playwright._impl._waiter.const": {
+    "input_size": 3898,
+    "blob_name": "playwright._impl._waiter",
+    "blob_size": 2538
+  },
+  "module.playwright._impl._web_error.const": {
+    "input_size": 904,
+    "blob_name": "playwright._impl._web_error",
+    "blob_size": 499
+  },
+  "module.playwright._impl._writable_stream.const": {
+    "input_size": 1490,
+    "blob_name": "playwright._impl._writable_stream",
+    "blob_size": 791
+  },
+  "module.playwright._impl.const": {
+    "input_size": 545,
+    "blob_name": "playwright._impl",
+    "blob_size": 299
+  },
+  "module.playwright._repo_version.const": {
+    "input_size": 481,
+    "blob_name": "playwright._repo_version",
+    "blob_size": 251
+  },
+  "module.playwright.const": {
+    "input_size": 660,
+    "blob_name": "playwright",
+    "blob_size": 441
+  },
+  "module.playwright.sync_api._context_manager.const": {
+    "input_size": 2667,
+    "blob_name": "playwright.sync_api._context_manager",
+    "blob_size": 1707
+  },
+  "module.playwright.sync_api._generated.const": {
+    "input_size": 638091,
+    "blob_name": "playwright.sync_api._generated",
+    "blob_size": 620295
+  },
+  "module.playwright.sync_api.const": {
+    "input_size": 3991,
+    "blob_name": "playwright.sync_api",
+    "blob_size": 3078
+  },
+  "module.psutil._common.const": {
+    "input_size": 17897,
+    "blob_name": "psutil._common",
+    "blob_size": 11973
+  },
+  "module.psutil._compat.const": {
+    "input_size": 5872,
+    "blob_name": "psutil._compat",
+    "blob_size": 4178
+  },
+  "module.psutil._psaix.const": {
+    "input_size": 10313,
+    "blob_name": "psutil._psaix",
+    "blob_size": 6072
+  },
+  "module.psutil._psbsd.const": {
+    "input_size": 14016,
+    "blob_name": "psutil._psbsd",
+    "blob_size": 8631
+  },
+  "module.psutil._pslinux.const": {
+    "input_size": 34866,
+    "blob_name": "psutil._pslinux",
+    "blob_size": 23410
+  },
+  "module.psutil._psosx.const": {
+    "input_size": 9522,
+    "blob_name": "psutil._psosx",
+    "blob_size": 5689
+  },
+  "module.psutil._psposix.const": {
+    "input_size": 3853,
+    "blob_name": "psutil._psposix",
+    "blob_size": 2780
+  },
+  "module.psutil._pssunos.const": {
+    "input_size": 12060,
+    "blob_name": "psutil._pssunos",
+    "blob_size": 7174
+  },
+  "module.psutil._pswindows.const": {
+    "input_size": 19608,
+    "blob_name": "psutil._pswindows",
+    "blob_size": 12925
+  },
+  "module.psutil.const": {
+    "input_size": 51762,
+    "blob_name": "psutil",
+    "blob_size": 42756
+  },
+  "module.pyee.asyncio.const": {
+    "input_size": 2665,
+    "blob_name": "pyee.asyncio",
+    "blob_size": 1954
+  },
+  "module.pyee.base.const": {
+    "input_size": 6781,
+    "blob_name": "pyee.base",
+    "blob_size": 5207
+  },
+  "module.pyee.const": {
+    "input_size": 1137,
+    "blob_name": "pyee",
+    "blob_size": 899
+  },
+  "module.pygments.const": {
+    "input_size": 2786,
+    "blob_name": "pygments",
+    "blob_size": 2273
+  },
+  "module.pygments.filter.const": {
+    "input_size": 2138,
+    "blob_name": "pygments.filter",
+    "blob_size": 1567
+  },
+  "module.pygments.filters.const": {
+    "input_size": 18898,
+    "blob_name": "pygments.filters",
+    "blob_size": 15777
+  },
+  "module.pygments.formatter.const": {
+    "input_size": 3866,
+    "blob_name": "pygments.formatter",
+    "blob_size": 3151
+  },
+  "module.pygments.lexer.const": {
+    "input_size": 18486,
+    "blob_name": "pygments.lexer",
+    "blob_size": 14388
+  },
+  "module.pygments.lexers._mapping.const": {
+    "input_size": 61689,
+    "blob_name": "pygments.lexers._mapping",
+    "blob_size": 57063
+  },
+  "module.pygments.lexers.const": {
+    "input_size": 8003,
+    "blob_name": "pygments.lexers",
+    "blob_size": 6102
+  },
+  "module.pygments.modeline.const": {
+    "input_size": 1021,
+    "blob_name": "pygments.modeline",
+    "blob_size": 678
+  },
+  "module.pygments.plugin.const": {
+    "input_size": 2767,
+    "blob_name": "pygments.plugin",
+    "blob_size": 1926
+  },
+  "module.pygments.regexopt.const": {
+    "input_size": 2058,
+    "blob_name": "pygments.regexopt",
+    "blob_size": 1310
+  },
+  "module.pygments.style.const": {
+    "input_size": 3881,
+    "blob_name": "pygments.style",
+    "blob_size": 2416
+  },
+  "module.pygments.styles._mapping.const": {
+    "input_size": 2983,
+    "blob_name": "pygments.styles._mapping",
+    "blob_size": 2744
+  },
+  "module.pygments.styles.abap.const": {
+    "input_size": 1236,
+    "blob_name": "pygments.styles.abap",
+    "blob_size": 762
+  },
+  "module.pygments.styles.algol.const": {
+    "input_size": 2618,
+    "blob_name": "pygments.styles.algol",
+    "blob_size": 1970
+  },
+  "module.pygments.styles.algol_nu.const": {
+    "input_size": 2626,
+    "blob_name": "pygments.styles.algol_nu",
+    "blob_size": 1991
+  },
+  "module.pygments.styles.arduino.const": {
+    "input_size": 2531,
+    "blob_name": "pygments.styles.arduino",
+    "blob_size": 1416
+  },
+  "module.pygments.styles.autumn.const": {
+    "input_size": 2359,
+    "blob_name": "pygments.styles.autumn",
+    "blob_size": 1361
+  },
+  "module.pygments.styles.borland.const": {
+    "input_size": 2032,
+    "blob_name": "pygments.styles.borland",
+    "blob_size": 1216
+  },
+  "module.pygments.styles.bw.const": {
+    "input_size": 1611,
+    "blob_name": "pygments.styles.bw",
+    "blob_size": 930
+  },
+  "module.pygments.styles.coffee.const": {
+    "input_size": 2579,
+    "blob_name": "pygments.styles.coffee",
+    "blob_size": 1430
+  },
+  "module.pygments.styles.colorful.const": {
+    "input_size": 3114,
+    "blob_name": "pygments.styles.colorful",
+    "blob_size": 1622
+  },
+  "module.pygments.styles.const": {
+    "input_size": 1856,
+    "blob_name": "pygments.styles",
+    "blob_size": 1229
+  },
+  "module.pygments.styles.default.const": {
+    "input_size": 2718,
+    "blob_name": "pygments.styles.default",
+    "blob_size": 1486
+  },
+  "module.pygments.styles.dracula.const": {
+    "input_size": 2605,
+    "blob_name": "pygments.styles.dracula",
+    "blob_size": 1589
+  },
+  "module.pygments.styles.emacs.const": {
+    "input_size": 2741,
+    "blob_name": "pygments.styles.emacs",
+    "blob_size": 1496
+  },
+  "module.pygments.styles.friendly.const": {
+    "input_size": 2880,
+    "blob_name": "pygments.styles.friendly",
+    "blob_size": 1583
+  },
+  "module.pygments.styles.friendly_grayscale.const": {
+    "input_size": 3081,
+    "blob_name": "pygments.styles.friendly_grayscale",
+    "blob_size": 1820
+  },
+  "module.pygments.styles.fruity.const": {
+    "input_size": 1855,
+    "blob_name": "pygments.styles.fruity",
+    "blob_size": 1126
+  },
+  "module.pygments.styles.gh_dark.const": {
+    "input_size": 3149,
+    "blob_name": "pygments.styles.gh_dark",
+    "blob_size": 1742
+  },
+  "module.pygments.styles.gruvbox.const": {
+    "input_size": 2884,
+    "blob_name": "pygments.styles.gruvbox",
+    "blob_size": 1657
+  },
+  "module.pygments.styles.igor.const": {
+    "input_size": 1299,
+    "blob_name": "pygments.styles.igor",
+    "blob_size": 805
+  },
+  "module.pygments.styles.inkpot.const": {
+    "input_size": 2376,
+    "blob_name": "pygments.styles.inkpot",
+    "blob_size": 1360
+  },
+  "module.pygments.styles.lightbulb.const": {
+    "input_size": 3000,
+    "blob_name": "pygments.styles.lightbulb",
+    "blob_size": 1768
+  },
+  "module.pygments.styles.lilypond.const": {
+    "input_size": 2252,
+    "blob_name": "pygments.styles.lilypond",
+    "blob_size": 1245
+  },
+  "module.pygments.styles.lovelace.const": {
+    "input_size": 3143,
+    "blob_name": "pygments.styles.lovelace",
+    "blob_size": 1824
+  },
+  "module.pygments.styles.manni.const": {
+    "input_size": 3008,
+    "blob_name": "pygments.styles.manni",
+    "blob_size": 1721
+  },
+  "module.pygments.styles.material.const": {
+    "input_size": 3231,
+    "blob_name": "pygments.styles.material",
+    "blob_size": 1768
+  },
+  "module.pygments.styles.monokai.const": {
+    "input_size": 2766,
+    "blob_name": "pygments.styles.monokai",
+    "blob_size": 1569
+  },
+  "module.pygments.styles.murphy.const": {
+    "input_size": 3075,
+    "blob_name": "pygments.styles.murphy",
+    "blob_size": 1583
+  },
+  "module.pygments.styles.native.const": {
+    "input_size": 2519,
+    "blob_name": "pygments.styles.native",
+    "blob_size": 1444
+  },
+  "module.pygments.styles.nord.const": {
+    "input_size": 2870,
+    "blob_name": "pygments.styles.nord",
+    "blob_size": 1682
+  },
+  "module.pygments.styles.onedark.const": {
+    "input_size": 1966,
+    "blob_name": "pygments.styles.onedark",
+    "blob_size": 1236
+  },
+  "module.pygments.styles.paraiso_dark.const": {
+    "input_size": 3110,
+    "blob_name": "pygments.styles.paraiso_dark",
+    "blob_size": 1743
+  },
+  "module.pygments.styles.paraiso_light.const": {
+    "input_size": 3118,
+    "blob_name": "pygments.styles.paraiso_light",
+    "blob_size": 1751
+  },
+  "module.pygments.styles.pastie.const": {
+    "input_size": 2791,
+    "blob_name": "pygments.styles.pastie",
+    "blob_size": 1569
+  },
+  "module.pygments.styles.perldoc.const": {
+    "input_size": 2535,
+    "blob_name": "pygments.styles.perldoc",
+    "blob_size": 1456
+  },
+  "module.pygments.styles.rainbow_dash.const": {
+    "input_size": 2915,
+    "blob_name": "pygments.styles.rainbow_dash",
+    "blob_size": 1601
+  },
+  "module.pygments.styles.rrt.const": {
+    "input_size": 1573,
+    "blob_name": "pygments.styles.rrt",
+    "blob_size": 952
+  },
+  "module.pygments.styles.sas.const": {
+    "input_size": 1871,
+    "blob_name": "pygments.styles.sas",
+    "blob_size": 1257
+  },
+  "module.pygments.styles.solarized.const": {
+    "input_size": 3461,
+    "blob_name": "pygments.styles.solarized",
+    "blob_size": 2100
+  },
+  "module.pygments.styles.staroffice.const": {
+    "input_size": 1310,
+    "blob_name": "pygments.styles.staroffice",
+    "blob_size": 868
+  },
+  "module.pygments.styles.stata_dark.const": {
+    "input_size": 1781,
+    "blob_name": "pygments.styles.stata_dark",
+    "blob_size": 1145
+  },
+  "module.pygments.styles.stata_light.const": {
+    "input_size": 1745,
+    "blob_name": "pygments.styles.stata_light",
+    "blob_size": 1183
+  },
+  "module.pygments.styles.tango.const": {
+    "input_size": 4244,
+    "blob_name": "pygments.styles.tango",
+    "blob_size": 2916
+  },
+  "module.pygments.styles.trac.const": {
+    "input_size": 2295,
+    "blob_name": "pygments.styles.trac",
+    "blob_size": 1310
+  },
+  "module.pygments.styles.vim.const": {
+    "input_size": 2176,
+    "blob_name": "pygments.styles.vim",
+    "blob_size": 1244
+  },
+  "module.pygments.styles.vs.const": {
+    "input_size": 1517,
+    "blob_name": "pygments.styles.vs",
+    "blob_size": 901
+  },
+  "module.pygments.styles.xcode.const": {
+    "input_size": 1621,
+    "blob_name": "pygments.styles.xcode",
+    "blob_size": 981
+  },
+  "module.pygments.styles.zenburn.const": {
+    "input_size": 2872,
+    "blob_name": "pygments.styles.zenburn",
+    "blob_size": 1694
+  },
+  "module.pygments.token.const": {
+    "input_size": 5042,
+    "blob_name": "pygments.token",
+    "blob_size": 2374
+  },
+  "module.pygments.util.const": {
+    "input_size": 7869,
+    "blob_name": "pygments.util",
+    "blob_size": 5739
+  },
+  "module.pythoncom.const": {
+    "input_size": 312,
+    "blob_name": "pythoncom",
+    "blob_size": 159
+  },
+  "module.pywin.const": {
+    "input_size": 476,
+    "blob_name": "pywin",
+    "blob_size": 244
+  },
+  "module.pywin.dialogs.const": {
+    "input_size": 533,
+    "blob_name": "pywin.dialogs",
+    "blob_size": 287
+  },
+  "module.pywin.dialogs.list.const": {
+    "input_size": 3356,
+    "blob_name": "pywin.dialogs.list",
+    "blob_size": 1874
+  },
+  "module.pywin.dialogs.status.const": {
+    "input_size": 4818,
+    "blob_name": "pywin.dialogs.status",
+    "blob_size": 2752
+  },
+  "module.pywin.mfc.const": {
+    "input_size": 517,
+    "blob_name": "pywin.mfc",
+    "blob_size": 271
+  },
+  "module.pywin.mfc.dialog.const": {
+    "input_size": 5990,
+    "blob_name": "pywin.mfc.dialog",
+    "blob_size": 3640
+  },
+  "module.pywin.mfc.object.const": {
+    "input_size": 1591,
+    "blob_name": "pywin.mfc.object",
+    "blob_size": 882
+  },
+  "module.pywin.mfc.thread.const": {
+    "input_size": 1008,
+    "blob_name": "pywin.mfc.thread",
+    "blob_size": 533
+  },
+  "module.pywin.mfc.window.const": {
+    "input_size": 1301,
+    "blob_name": "pywin.mfc.window",
+    "blob_size": 685
+  },
+  "module.pywin32_system32.const": {
+    "input_size": 202,
+    "blob_name": "pywin32_system32",
+    "blob_size": 113
+  },
+  "module.pywintypes.const": {
+    "input_size": 1271,
+    "blob_name": "pywintypes",
+    "blob_size": 699
+  },
+  "module.requests.__version__.const": {
+    "input_size": 794,
+    "blob_name": "requests.__version__",
+    "blob_size": 420
+  },
+  "module.requests._internal_utils.const": {
+    "input_size": 1543,
+    "blob_name": "requests._internal_utils",
+    "blob_size": 1101
+  },
+  "module.requests.adapters.const": {
+    "input_size": 19014,
+    "blob_name": "requests.adapters",
+    "blob_size": 16629
+  },
+  "module.requests.api.const": {
+    "input_size": 6245,
+    "blob_name": "requests.api",
+    "blob_size": 5721
+  },
+  "module.requests.auth.const": {
+    "input_size": 6214,
+    "blob_name": "requests.auth",
+    "blob_size": 3766
+  },
+  "module.requests.certs.const": {
+    "input_size": 618,
+    "blob_name": "requests.certs",
+    "blob_size": 464
+  },
+  "module.requests.compat.const": {
+    "input_size": 1751,
+    "blob_name": "requests.compat",
+    "blob_size": 1290
+  },
+  "module.requests.const": {
+    "input_size": 3489,
+    "blob_name": "requests",
+    "blob_size": 2809
+  },
+  "module.requests.cookies.const": {
+    "input_size": 14159,
+    "blob_name": "requests.cookies",
+    "blob_size": 11040
+  },
+  "module.requests.exceptions.const": {
+    "input_size": 4354,
+    "blob_name": "requests.exceptions",
+    "blob_size": 3174
+  },
+  "module.requests.hooks.const": {
+    "input_size": 710,
+    "blob_name": "requests.hooks",
+    "blob_size": 470
+  },
+  "module.requests.models.const": {
+    "input_size": 17854,
+    "blob_name": "requests.models",
+    "blob_size": 13778
+  },
+  "module.requests.packages.const": {
+    "input_size": 560,
+    "blob_name": "requests.packages",
+    "blob_size": 266
+  },
+  "module.requests.sessions.const": {
+    "input_size": 15950,
+    "blob_name": "requests.sessions",
+    "blob_size": 13115
+  },
+  "module.requests.status_codes.const": {
+    "input_size": 3822,
+    "blob_name": "requests.status_codes",
+    "blob_size": 3249
+  },
+  "module.requests.structures.const": {
+    "input_size": 3367,
+    "blob_name": "requests.structures",
+    "blob_size": 2423
+  },
+  "module.requests.utils.const": {
+    "input_size": 19337,
+    "blob_name": "requests.utils",
+    "blob_size": 14143
+  },
+  "module.urllib3._base_connection.const": {
+    "input_size": 1448,
+    "blob_name": "urllib3._base_connection",
+    "blob_size": 840
+  },
+  "module.urllib3._collections.const": {
+    "input_size": 10597,
+    "blob_name": "urllib3._collections",
+    "blob_size": 8400
+  },
+  "module.urllib3._request_methods.const": {
+    "input_size": 8527,
+    "blob_name": "urllib3._request_methods",
+    "blob_size": 7886
+  },
+  "module.urllib3._version.const": {
+    "input_size": 464,
+    "blob_name": "urllib3._version",
+    "blob_size": 234
+  },
+  "module.urllib3.connection.const": {
+    "input_size": 18766,
+    "blob_name": "urllib3.connection",
+    "blob_size": 16384
+  },
+  "module.urllib3.connectionpool.const": {
+    "input_size": 23758,
+    "blob_name": "urllib3.connectionpool",
+    "blob_size": 21328
+  },
+  "module.urllib3.const": {
+    "input_size": 6293,
+    "blob_name": "urllib3",
+    "blob_size": 5449
+  },
+  "module.urllib3.contrib.const": {
+    "input_size": 541,
+    "blob_name": "urllib3.contrib",
+    "blob_size": 295
+  },
+  "module.urllib3.contrib.pyopenssl.const": {
+    "input_size": 12535,
+    "blob_name": "urllib3.contrib.pyopenssl",
+    "blob_size": 9118
+  },
+  "module.urllib3.contrib.socks.const": {
+    "input_size": 5127,
+    "blob_name": "urllib3.contrib.socks",
+    "blob_size": 3955
+  },
+  "module.urllib3.exceptions.const": {
+    "input_size": 8809,
+    "blob_name": "urllib3.exceptions",
+    "blob_size": 6673
+  },
+  "module.urllib3.fields.const": {
+    "input_size": 8390,
+    "blob_name": "urllib3.fields",
+    "blob_size": 7292
+  },
+  "module.urllib3.filepost.const": {
+    "input_size": 2034,
+    "blob_name": "urllib3.filepost",
+    "blob_size": 1421
+  },
+  "module.urllib3.http2.connection.const": {
+    "input_size": 8420,
+    "blob_name": "urllib3.http2.connection",
+    "blob_size": 6348
+  },
+  "module.urllib3.http2.const": {
+    "input_size": 1455,
+    "blob_name": "urllib3.http2",
+    "blob_size": 985
+  },
+  "module.urllib3.http2.probe.const": {
+    "input_size": 1674,
+    "blob_name": "urllib3.http2.probe",
+    "blob_size": 1094
+  },
+  "module.urllib3.poolmanager.const": {
+    "input_size": 16249,
+    "blob_name": "urllib3.poolmanager",
+    "blob_size": 13591
+  },
+  "module.urllib3.response.const": {
+    "input_size": 21963,
+    "blob_name": "urllib3.response",
+    "blob_size": 17501
+  },
+  "module.urllib3.util.connection.const": {
+    "input_size": 2965,
+    "blob_name": "urllib3.util.connection",
+    "blob_size": 2251
+  },
+  "module.urllib3.util.const": {
+    "input_size": 1584,
+    "blob_name": "urllib3.util",
+    "blob_size": 1254
+  },
+  "module.urllib3.util.proxy.const": {
+    "input_size": 965,
+    "blob_name": "urllib3.util.proxy",
+    "blob_size": 711
+  },
+  "module.urllib3.util.request.const": {
+    "input_size": 5693,
+    "blob_name": "urllib3.util.request",
+    "blob_size": 4475
+  },
+  "module.urllib3.util.response.const": {
+    "input_size": 1972,
+    "blob_name": "urllib3.util.response",
+    "blob_size": 1468
+  },
+  "module.urllib3.util.retry.const": {
+    "input_size": 12986,
+    "blob_name": "urllib3.util.retry",
+    "blob_size": 11370
+  },
+  "module.urllib3.util.ssl_.const": {
+    "input_size": 10534,
+    "blob_name": "urllib3.util.ssl_",
+    "blob_size": 9145
+  },
+  "module.urllib3.util.ssl_match_hostname.const": {
+    "input_size": 3417,
+    "blob_name": "urllib3.util.ssl_match_hostname",
+    "blob_size": 2420
+  },
+  "module.urllib3.util.ssltransport.const": {
+    "input_size": 6781,
+    "blob_name": "urllib3.util.ssltransport",
+    "blob_size": 5029
+  },
+  "module.urllib3.util.timeout.const": {
+    "input_size": 8702,
+    "blob_name": "urllib3.util.timeout",
+    "blob_size": 7556
+  },
+  "module.urllib3.util.url.const": {
+    "input_size": 9574,
+    "blob_name": "urllib3.util.url",
+    "blob_size": 6812
+  },
+  "module.urllib3.util.util.const": {
+    "input_size": 946,
+    "blob_name": "urllib3.util.util",
+    "blob_size": 583
+  },
+  "module.urllib3.util.wait.const": {
+    "input_size": 1654,
+    "blob_name": "urllib3.util.wait",
+    "blob_size": 1178
+  },
+  "module.win32_setctime._setctime.const": {
+    "input_size": 1582,
+    "blob_name": "win32_setctime._setctime",
+    "blob_size": 877
+  },
+  "module.win32_setctime.const": {
+    "input_size": 581,
+    "blob_name": "win32_setctime",
+    "blob_size": 320
+  },
+  "module.win32com.client.CLSIDToClass.const": {
+    "input_size": 1979,
+    "blob_name": "win32com.client.CLSIDToClass",
+    "blob_size": 1685
+  },
+  "module.win32com.client.build.const": {
+    "input_size": 9965,
+    "blob_name": "win32com.client.build",
+    "blob_size": 6469
+  },
+  "module.win32com.client.const": {
+    "input_size": 13686,
+    "blob_name": "win32com.client",
+    "blob_size": 10741
+  },
+  "module.win32com.client.dynamic.const": {
+    "input_size": 10519,
+    "blob_name": "win32com.client.dynamic",
+    "blob_size": 7125
+  },
+  "module.win32com.client.gencache.const": {
+    "input_size": 12216,
+    "blob_name": "win32com.client.gencache",
+    "blob_size": 9946
+  },
+  "module.win32com.client.genpy.const": {
+    "input_size": 19063,
+    "blob_name": "win32com.client.genpy",
+    "blob_size": 12898
+  },
+  "module.win32com.client.makepy.const": {
+    "input_size": 6879,
+    "blob_name": "win32com.client.makepy",
+    "blob_size": 4885
+  },
+  "module.win32com.client.selecttlb.const": {
+    "input_size": 2845,
+    "blob_name": "win32com.client.selecttlb",
+    "blob_size": 1691
+  },
+  "module.win32com.client.util.const": {
+    "input_size": 2865,
+    "blob_name": "win32com.client.util",
+    "blob_size": 1965
+  },
+  "module.win32com.const": {
+    "input_size": 1472,
+    "blob_name": "win32com",
+    "blob_size": 756
+  },
+  "module.win32con.const": {
+    "input_size": 156190,
+    "blob_name": "win32con",
+    "blob_size": 86041
+  },
+  "module.win32ui-preLoad.const": {
+    "input_size": 259,
+    "blob_name": "win32ui-preLoad",
+    "blob_size": 132
+  },
+  "module.winerror.const": {
+    "input_size": 138083,
+    "blob_name": "winerror",
+    "blob_size": 76643
+  },
+  "module.wmi.const": {
+    "input_size": 35492,
+    "blob_name": "wmi",
+    "blob_size": 29157
+  },
+  "module.zstandard.backend_cffi.const": {
+    "input_size": 96266,
+    "blob_name": "zstandard.backend_cffi",
+    "blob_size": 87040
+  },
+  "module.zstandard.const": {
+    "input_size": 4992,
+    "blob_name": "zstandard",
+    "blob_size": 3854
+  },
+  "total": 57270
+}

@@ -1,12 +1,9 @@
 from flask import Flask, jsonify, request
-from .pem import CertificateGenerator
 from .encrypt import AsymmetricEncryption
 from .database import DatabaseManager
 import json
 import time
 
-cert_gen = CertificateGenerator()
-cert_gen.generate_certificate()
 
 app = Flask(__name__)
 
@@ -80,3 +77,4 @@ if __name__ == '__main__':
     '/etc/letsencrypt/live/lamic.top/fullchain.pem', '/etc/letsencrypt/live/lamic.top/privkey.pem'
     # app.run(host='0.0.0.0', port=8443, ssl_context=('cnk/cert.pem', 'cnk/key.pem'))
     app.run(host='0.0.0.0', port=8443, ssl_context=('/etc/letsencrypt/live/lamic.top/fullchain.pem', '/etc/letsencrypt/live/lamic.top/privkey.pem'))
+    

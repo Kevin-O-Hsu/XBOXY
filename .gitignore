@@ -1,6 +1,7 @@
 __pycache__
 .vscode
-cache
+xboxy.onefile-build
+xboxy.dist
 cnk
 config
 data
@@ -8,5 +9,5 @@ osrcd
 venv
 output.json
 fix_ny.json
-
+xboxy.exe
 

@@ -123,8 +123,6 @@ class DatabaseManager:
                 print(f"Column '{column_name}' added successfully.")
         except sqlite3.OperationalError as e:
             print(f"Error adding column '{column_name}': {e}")
-    
-    
 
     def close(self):
         """
