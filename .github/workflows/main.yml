@@ -25,9 +25,6 @@ jobs:
         pip install -r requirements.txt
         choco install 7zip --no-progress -y
         playwright install
-        
-
-
 
     - name: Run PowerShell Commands
       shell: pwsh
@@ -41,11 +38,11 @@ jobs:
         Copy-Item -Path "osrcd" -Destination "output/" -Recurse -Force
         Copy-Item -Path "build/cache/xboxy.exe" -Destination "output/" -Recurse -Force
         Copy-Item -Path "eula.txt" -Destination "output/" -Recurse -Force
-        7z a -t7z -mx=9 XBOXY.7z output/*
+        7z a -t7z -mx=9 XBOXY.7z ./output/* -r
 
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: XBOXY.7z
+        name: XBOXY
         path: XBOXY.7z
