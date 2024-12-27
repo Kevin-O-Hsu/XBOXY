@@ -40,6 +40,7 @@ jobs:
         7z x osrcd.7z
         Copy-Item -Path "osrcd" -Destination "output/" -Recurse -Force
         Copy-Item -Path "build/cache/xboxy.exe" -Destination "output/" -Recurse -Force
+        Copy-Item -Path "eula.txt" -Destination "output/" -Recurse -Force
         7z a -t7z -mx=9 XBOXY.7z output/*
 
         
