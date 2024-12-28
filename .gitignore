@@ -2,7 +2,7 @@ __pycache__
 .vscode
 cache
 cnk
-config
+config.json
 data
 osrcd
 venv
