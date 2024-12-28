@@ -2,7 +2,6 @@
 # authentication and proxy connection, and providing methods for loading accounts from files or manual
 # input.
 import pathlib
-import sys
 import os
 import re
 from rich.console import Console
@@ -64,7 +63,7 @@ class XBOXY:
             logger.info("代理服务器已连接")
         except Exception as e:
             logger.warning(f"代理服务器连接失败: {e}")
-            sys.exit()
+            raise Exception
 
 
     def setup_config(self, config_file: systemutils.JsonFile):
@@ -76,7 +75,7 @@ class XBOXY:
         logger.info("配置文件已创建")
         if input("是否同意EULA[Y/N]>>> ").lower() != 'y':
             logger.warning("未同意EULA, 程序退出")
-            sys.exit()
+            raise Exception
         logger.info("请输入你的软件激活码: ")
         pass_key = input("激活码>>> ")
         config_file.write_json_data({"license_key": pass_key, "accept_eula": True})
@@ -89,7 +88,7 @@ class XBOXY:
         if not data.get("accept_eula"):
             if input("同意EULA[Y/N]>>> ").lower() != 'y':
                 logger.warning("未同意EULA, 程序退出")
-                sys.exit()
+                raise Exception
             config_file.update_json_data({"accept_eula": True})
         if not data.get("license_key"):
             logger.info("请输入你的软件激活码: ")
@@ -127,7 +126,7 @@ class XBOXY:
             self.input_single_account()
         else:
             logger.warning("无效选择，程序退出")
-            sys.exit()
+            raise Exception
 
     def load_accounts_from_file(self):
         """
@@ -136,7 +135,7 @@ class XBOXY:
         file_path = Prompt.ask("请输入文件路径")
         if not os.path.exists(file_path):
             logger.warning("文件不存在，程序退出")
-            sys.exit()
+            raise Exception 
         logger.info("正在加载文件...")
         with open(file_path, 'r') as f:
             for line in f:

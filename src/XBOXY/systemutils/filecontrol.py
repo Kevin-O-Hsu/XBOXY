@@ -57,6 +57,16 @@ class File(object):
         logger.info(f"创建文件: {self.path}")
         return self
     
+    def del_file(self):
+        """
+        The function deletes a file if it exists.
+        :return: The `self` object is being returned.
+        """
+        if self.is_exist:
+            self.path.unlink()
+            logger.info(f"删除文件: {self.path}")
+        return self
+    
     
 
 class JsonFile(File):
@@ -97,6 +107,8 @@ class JsonFile(File):
         self.path.touch(exist_ok=True)
         logger.info(f"创建JSON文件: {self.path}")
         return self
+    
+
 
     def get_json_data(self, if_list: bool=False):
         """

@@ -75,13 +75,13 @@ try:
         output_file.append(link)
         
 except Exception as e:
-    logger.error(e)
+    pass
     
 finally:
+    if len(output_file.get_json_data()) == 0:
+        output_file.del_file()
     xboxy.cleanup()
-    print(0)
     input("按回车退出...")
-    print(1)
     os._exit(0)
 
     
