@@ -132,7 +132,7 @@ class ChromiumBrowser(object):
         # 从字符集中随机选择字符并生成字符串
         return ''.join(random.choice(characters) for _ in range(length))
     
-    def element_exists(self, page: Page, selector: str, locate_method="locator") -> bool:
+    def element_exists(self, page: Page, selector: str, locate_method: str='locator') -> bool:
         """
         The `element_exists` function checks if an element exists on a page based on the specified selector
         and locate method.
