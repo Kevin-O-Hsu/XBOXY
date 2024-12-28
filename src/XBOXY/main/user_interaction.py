@@ -81,7 +81,7 @@ finally:
     if len(output_file.get_json_data()) == 0:
         output_file.del_file()
     xboxy.cleanup()
-    input("按回车退出...")
+    input("按ctrl+c退出...")
     os._exit(0)
 
     
