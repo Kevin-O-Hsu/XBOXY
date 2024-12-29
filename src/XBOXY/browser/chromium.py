@@ -21,7 +21,9 @@ class ChromiumBrowser(object):
                 )
                 
             self.set_context()
-            self.result_data = self.run()
+            self.result_data = self.run() 
+            self.close_context()
+
 
     def set_context(self) -> "ChromiumBrowser":
         """
@@ -37,6 +39,11 @@ class ChromiumBrowser(object):
                 device_scale_factor=2,
         )
         return self
+
+
+    def close_context(self) -> "ChromiumBrowser":
+        self.context.close()
+        return self
     
     
     def reset_context(self) -> "ChromiumBrowser":
@@ -44,11 +51,10 @@ class ChromiumBrowser(object):
         The `reset_context` function closes the current context and sets a new context.
         :return: The `reset_context` method is returning the result of calling the `set_context` method.
         """
-        self.context.close()
-        return self.set_context()
-        
-        
-        
+        self.close_context()
+        self.set_context()
+        return self
+    
 
     def _generate_random_user_agent(self) -> str:
         """

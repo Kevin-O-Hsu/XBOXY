@@ -30,19 +30,17 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         p.locator('input[id="i0116"]').fill(self.email)
         self.wait_for_change(p, 'input[id="i0116"]', self.email)
         p.locator('button[type="submit"]').click()
-        
         p.wait_for_load_state("networkidle", timeout=0)
-        
         
         if self.element_exists(p, 'input[id="idTxtBx_OTC_Password"]'):
             p.locator('span[role="button"][id="idA_PWD_SwitchToCredPicker"]').click()
             p.locator('#tileList > div:nth-child(2) > div > button').click()
             p.wait_for_load_state("networkidle", timeout=0)
-            
         p.wait_for_load_state("networkidle", timeout=0)
-        
-        while(True):
+
+        while True:
             if not self.element_exists(p, 'input[id="i0118"]'):
+                # 如果出现错误提示，则退出
                 if self.element_exists(p, 'alert', 'role'):
                     logger.warning("无法登录")
                     return []
