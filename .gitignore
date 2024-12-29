@@ -1,6 +1,7 @@
 __pycache__
 .vscode
-cache
+cache/*.build
+cache/*.onefile-build
 cnk
 config.json
 data
@@ -9,4 +10,3 @@ venv
 output.json
 fix_ny.json
 xboxy.exe
-
