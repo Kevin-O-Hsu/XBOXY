@@ -1,5 +1,6 @@
 import pathlib
-import sys
+import msvcrt
+import ctypes
 
 from .main_handle import XBOXY
 from .. import log
@@ -7,9 +8,9 @@ from ..systemutils import JsonFile
 
 logger = log.logger
 
-version = 'v1.0.3'
-release_date = '2024-12-23'
-build = '4'
+version = 'v1.0.4'
+release_date = '2024-12-29'
+build = '1'
 update_note = \
     """
     v1.0.3 b1
@@ -32,6 +33,13 @@ update_note = \
     * 修复了输入账户后一直卡住的问题
     * 增加了发包的随机性，不易检测出是机器人
     * 修复了一些已知问题
+    
+    v1.0.4 b1
+    * 修复了按下回车键程序不退出的问题
+    * 修复了卡在输入账号不动的问题
+    * 将配置文件从config/config.json变成了config.json
+    * 修复了若干个小问题
+    * 优化代码
     
     """
 print(r"""
@@ -62,7 +70,7 @@ $$ /  $$ |$$$$$$$  | $$$$$$  |$$ /  $$ |    $$ |
 
 logger.info(f"Version: {version} build {build} released on {release_date} by GreshAnt")
 logger.info(update_note)
-
+ctypes.windll.kernel32.SetConsoleTitleW(f"XBOXY {version} build {build} by GreshAnt")
 try:
     xboxy = XBOXY()
     output_file = JsonFile(pathlib.Path("output.json"), needed=True)
@@ -74,13 +82,11 @@ try:
         output_file.append(link)
         
 except Exception as e:
-    pass
+    logger.error(e)
     
 finally:
     if len(output_file.get_json_data()) == 0:
         output_file.del_file()
     xboxy.cleanup()
-    input("按ctrl+c退出...")
-    sys.exit(0)
-
-    
+    print("按下任意键退出...")
+    msvcrt.getch()  # 等待按下任意键
