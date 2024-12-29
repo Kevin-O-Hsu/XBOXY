@@ -31,12 +31,6 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         self.wait_for_change(p, 'input[id="i0116"]', self.email)
         p.locator('button[type="submit"]').click()
         p.wait_for_load_state("networkidle", timeout=0)
-        
-        if self.element_exists(p, 'input[id="idTxtBx_OTC_Password"]'):
-            p.locator('span[role="button"][id="idA_PWD_SwitchToCredPicker"]').click()
-            p.locator('#tileList > div:nth-child(2) > div > button').click()
-            p.wait_for_load_state("networkidle", timeout=0)
-        p.wait_for_load_state("networkidle", timeout=0)
 
         while True:
             if not self.element_exists(p, 'input[id="i0118"]'):
@@ -44,9 +38,14 @@ class XBOXYBrowser(browser.ChromiumBrowser):
                 if self.element_exists(p, 'alert', 'role'):
                     logger.warning("无法登录")
                     return []
+                
+                if self.element_exists(p, 'input[id="idTxtBx_OTC_Password"]'):
+                    p.locator('span[role="button"][id="idA_PWD_SwitchToCredPicker"]').click()
+                    p.locator('#tileList > div:nth-child(2) > div > button').click()
             else:
                 break
-        
+            
+        p.wait_for_load_state("networkidle", timeout=0)
         p.locator('input[id="i0118"]').fill(self.password)
         self.wait_for_change(p, 'input[id="i0118"]', self.password)
         p.locator('button[type="submit"]').click()
@@ -76,6 +75,7 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         if self.element_exists(p, 'div[id="iSelectProofTitle"]'):
             logger.warning("需要验证身份, 无法登录")
             return []
+        
 
         p.wait_for_load_state("networkidle", timeout=0)
         # 提取剩余配额和链接

@@ -1,7 +1,7 @@
 import subprocess
 import psutil
 import pathlib
-
+from ..log import logger
 
 # The `Runner` class in Python initializes with optional command and path attributes.
 class Runner(object):
@@ -17,7 +17,10 @@ class Runner(object):
         define the working directory for the command execution or specify the location for saving files
         """
         self.cmd = cmd
-        self.path = path
+        if isinstance(path, str):
+            self.path = pathlib.Path(path)
+        else:
+            self.path = path
 
         
     def run(self):
@@ -38,5 +41,6 @@ class Runner(object):
                 if proc.info['exe'] == pathlib.Path(self.path):
                     print(f"终止进程: {proc.info['name']} (PID: {proc.info['pid']})")
                     proc.terminate()
-            except (psutil.NoSuchProcess, psutil.AccessDenied):
+            except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
+                # logger.error(e)
                 pass

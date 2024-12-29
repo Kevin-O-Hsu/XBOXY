@@ -82,7 +82,7 @@ try:
         output_file.append(link)
         
 except Exception as e:
-    #logger.error(e)
+    # logger.error(e)
     pass
     
 finally:
@@ -91,3 +91,13 @@ finally:
     xboxy.cleanup()
     print("按下任意键退出...")
     msvcrt.getch()  # 等待按下任意键
+
+
+# xboxy = XBOXY()
+# output_file = JsonFile(pathlib.Path("output.json"), needed=True)
+# output_file.create_file()
+# xboxy.initialize()
+# xboxy.run()
+# logger.info(xboxy.result)
+# for link in xboxy.result:
+#     output_file.append(link)

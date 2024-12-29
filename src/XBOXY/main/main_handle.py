@@ -171,3 +171,4 @@ class XBOXY:
         logger.info("关闭代理服务器...")
         systemutils.Runner(path=f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path}").terminate()
         logger.info("代理服务器已关闭")
+        

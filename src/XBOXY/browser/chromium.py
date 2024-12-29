@@ -4,8 +4,6 @@ import random
 import string
 import pathlib
 
-from .. import systemutils
-
 
 class ChromiumBrowser(object):
 
@@ -25,10 +23,11 @@ class ChromiumBrowser(object):
             self.set_context()
             self.result_data = self.run() 
             self.close_context()
-            
-            systemutils.Runner(path=systemutils.File("osrcd/chromium-1140/chrome-win/chrome.exe", True).path).terminate()
-            
-
+    
+    
+    def run(self):
+        """Need to override"""
+        pass
 
     def set_context(self) -> "ChromiumBrowser":
         """

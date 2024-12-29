@@ -23,15 +23,17 @@ class File(object):
             needed (bool, optional): A flag indicating if the path adjustment 
                                     for Nuitka is necessary. Defaults to False.
         """
-        if isinstance(path, str):
-            self.path = pathlib.Path(path)
         
         if self.is_nuitka() and not needed:
             self.path = pathlib.Path(sys.executable).parent / path
         else:
-            self.path = path
-            
+            if isinstance(path, str):
+                self.path = pathlib.Path(path)
+            else:
+                self.path = path
+        
         self.is_exist = self.exists()
+        
         
     def is_nuitka(self) -> bool:
         """
