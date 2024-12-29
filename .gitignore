@@ -1,7 +1,6 @@
 __pycache__
 .vscode
-cache/*.build
-cache/*.onefile-build
+cache
 cnk
 config.json
 data
