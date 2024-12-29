@@ -10,7 +10,7 @@ logger = log.logger
 
 version = 'v1.0.4'
 release_date = '2024-12-29'
-build = '1'
+build = '2'
 update_note = \
     """
     v1.0.3 b1
