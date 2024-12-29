@@ -166,6 +166,8 @@ class XBOXY:
         """
         程序退出时关闭代理。
         """
+        systemutils.Runner(path=systemutils.File(pathlib.Path("osrcd/chromium-1140/chrome-win/chrome.exe"), True).path).terminate()
+        
         logger.info("关闭代理服务器...")
         systemutils.Runner(path=f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path}").terminate()
         logger.info("代理服务器已关闭")

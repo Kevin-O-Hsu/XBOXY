@@ -82,7 +82,8 @@ try:
         output_file.append(link)
         
 except Exception as e:
-    logger.error(e)
+    #logger.error(e)
+    pass
     
 finally:
     if len(output_file.get_json_data()) == 0:
