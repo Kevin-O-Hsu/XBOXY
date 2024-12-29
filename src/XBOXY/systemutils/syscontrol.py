@@ -37,10 +37,12 @@ class Runner(object):
         The `terminate` function terminates processes with a specific executable path.
         """
         for proc in psutil.process_iter(['pid', 'name', 'exe']):
+            if (proc.info["exe"] is None) or (proc.info["pid"] == 0):
+                continue
             try:
-                if proc.info['exe'] == pathlib.Path(self.path):
-                    print(f"终止进程: {proc.info['name']} (PID: {proc.info['pid']})")
+                if pathlib.Path(proc.info['exe']).resolve() == pathlib.Path(self.path).resolve():
+                    logger.info(f"终止进程: {proc.info['name']} (PID: {proc.info['pid']})")
                     proc.terminate()
             except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
-                # logger.error(e)
                 pass
+            
