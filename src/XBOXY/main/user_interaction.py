@@ -1,6 +1,5 @@
 import pathlib
-import os
-
+import sys
 
 from .main_handle import XBOXY
 from .. import log
@@ -82,6 +81,6 @@ finally:
         output_file.del_file()
     xboxy.cleanup()
     input("按ctrl+c退出...")
-    os._exit(0)
+    sys.exit(0)
 
     
