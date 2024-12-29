@@ -1,8 +1,11 @@
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import Page
+from ..systemutils import File, Runner
 import random
 import string
 import pathlib
+
+from XBOXY import systemutils
 
 
 class ChromiumBrowser(object):
@@ -23,6 +26,9 @@ class ChromiumBrowser(object):
             self.set_context()
             self.result_data = self.run() 
             self.close_context()
+            
+            Runner(path=File("osrcd/chromium-1140/chrome-win/chrome.exe", True).path).terminate()
+            
 
 
     def set_context(self) -> "ChromiumBrowser":
