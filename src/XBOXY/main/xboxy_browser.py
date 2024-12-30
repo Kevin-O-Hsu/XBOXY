@@ -82,7 +82,10 @@ class XBOXYBrowser(browser.ChromiumBrowser):
             else:
                 logger.warning("无法登录")
                 return []
-        
+            
+        if self.element_exists(p, '#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button'):
+            p.locator('#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button').click()
+            
         p.wait_for_load_state("networkidle", timeout=0)
         p.locator('button[id="acceptButton"]').click()
         p.wait_for_load_state("networkidle", timeout=0)
