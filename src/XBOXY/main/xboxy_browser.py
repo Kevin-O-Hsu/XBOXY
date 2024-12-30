@@ -76,13 +76,21 @@ class XBOXYBrowser(browser.ChromiumBrowser):
             logger.warning("需要验证身份, 无法登录")
             return []
         
-
+        if self.element_exists(p, 'select[id="iProofOptions"]'):
+            if self.element_exists(p, 'a[id="iShowSkip"]'):
+                p.locator('a[id="iShowSkip"]').click()
+            else:
+                logger.warning("无法登录")
+                return []
+        
         p.wait_for_load_state("networkidle", timeout=0)
-        # 提取剩余配额和链接
         p.locator('button[id="acceptButton"]').click()
-        
-        
         p.wait_for_load_state("networkidle", timeout=0)
+        
+        if self.element_exists(p, 'input[id="create-account-gamertag-input"]'):
+            logger.warning("该账号还没有创建XBOX账号, 不可能有配额")
+            return []
+            
         
         p.wait_for_selector('#BuddyPassSender > div > div > p')
         display_sentence = p.locator('#BuddyPassSender > div > div > p').text_content()

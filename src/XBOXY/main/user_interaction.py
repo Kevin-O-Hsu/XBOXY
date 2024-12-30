@@ -9,8 +9,8 @@ from ..systemutils import JsonFile
 logger = log.logger
 
 version = 'v1.0.4'
-release_date = '2024-12-29'
-build = '2'
+release_date = '2024-12-30'
+build = '3'
 update_note = \
     """
     v1.0.3 b1
@@ -40,6 +40,10 @@ update_note = \
     * 将配置文件从config/config.json变成了config.json
     * 修复了若干个小问题
     * 优化代码
+    
+    v1.0.3 b2-b3
+    * 修复了某些账号无法登录的问题
+    * 优化了用户提示
     
     """
 print(r"""
