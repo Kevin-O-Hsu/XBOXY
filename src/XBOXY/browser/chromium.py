@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import Page
+import ua_generator
 import random
 import string
 import pathlib
@@ -62,19 +63,10 @@ class ChromiumBrowser(object):
 
     def _generate_random_user_agent(self) -> str:
         """
-        The function `_generate_random_user_agent` returns a randomly selected user agent string from a
-        predefined list.
-        :return: The `_generate_random_user_agent` method returns a randomly chosen user agent string from
-        the list `user_agents`.
+        The function `_generate_random_user_agent` returns a randomly generated user agent string.
+        :return: A randomly generated user agent string is being returned.
         """
-        user_agents = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36",
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/92.0",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
-            "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1",
-            "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Mobile Safari/537.36"
-        ]
-        return random.choice(user_agents)
+        return ua_generator.generate().text
 
     def _generate_random_geolocation(self) -> dict[str, float]:
         """

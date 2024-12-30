@@ -9,3 +9,5 @@ venv
 output.json
 fix_ny.json
 xboxy.exe
+*.7z
+*.zip

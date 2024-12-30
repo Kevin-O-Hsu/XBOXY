@@ -39,7 +39,7 @@ def generate_random_string(length=10):
 
 all_str = ''
 
-for _ in range(20):
+for _ in range(1):
     
     activation_code = \
         {
