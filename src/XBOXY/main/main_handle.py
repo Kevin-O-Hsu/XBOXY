@@ -17,17 +17,23 @@ from .. import verify
 logger = log.logger
 console = Console()
 
+# The `XBOXY` class manages multiple accounts, handles initialization, configuration setup, account
+# loading, and proxy connection in a Python program.
 class XBOXY:
     """
     主程序类，负责多账号管理、代理启动等功能。
     """
     def __init__(self) -> None:
+        """
+        The function initializes two empty lists, `accounts` and `result`.
+        """
         self.accounts = []
         self.result = []
     
     def initialize(self):
         """
-        初始化程序，完成身份验证和代理连接。
+        The `initialize` function in Python initializes the program by performing identity verification,
+        connecting to a proxy, validating a license key, and loading accounts.
         """
         logger.info("开始身份验证...")
         config_file = systemutils.JsonFile(pathlib.Path("config.json"), needed=True)
@@ -68,7 +74,13 @@ class XBOXY:
 
     def setup_config(self, config_file: systemutils.JsonFile):
         """
-        创建配置文件并进行初始化设置。
+        This Python function sets up a configuration file, prompts the user to agree to an End User License
+        Agreement (EULA), and collects a software activation key.
+        
+        :param config_file: The `config_file` parameter is an instance of the `JsonFile` class from the
+        `systemutils` module. It is used to handle operations related to a JSON configuration file, such as
+        creating the file, writing JSON data to it, and reading JSON data from it
+        :type config_file: systemutils.JsonFile
         """
         config_file.create_file()
         config_file.write_json_data({})
@@ -82,7 +94,14 @@ class XBOXY:
 
     def validate_config(self, config_file: systemutils.JsonFile):
         """
-        验证现有配置文件。
+        This Python function validates an existing configuration file by checking and updating certain
+        key-value pairs.
+        
+        :param config_file: The `config_file` parameter in the `validate_config` method is of type
+        `systemutils.JsonFile`. This parameter is used to read and update a JSON configuration file that
+        contains settings for the program. The method reads the JSON data from the `config_file`, checks if
+        certain keys exist in the
+        :type config_file: systemutils.JsonFile
         """
         data = config_file.get_json_data()
         if not data.get("accept_eula"):
@@ -97,7 +116,16 @@ class XBOXY:
 
     def verify_license(self, pass_key, config_file: systemutils.JsonFile):
         """
-        验证激活码。
+        This Python function verifies a license key by sending online verification requests and updates a
+        JSON configuration file with the valid key.
+        
+        :param pass_key: The `pass_key` parameter is the activation code that is used to verify the license.
+        It is provided by the user and is used in the online verification process to check the validity of
+        the license
+        :param config_file: The `config_file` parameter is of type `systemutils.JsonFile`, which is likely a
+        class or object that handles reading and writing JSON data to a file. In this context, it seems to
+        be used for storing and updating license key information. The `update_json_data` method is likely a
+        :type config_file: systemutils.JsonFile
         """
         while not verify.OnlineVerification(verify.Collection().hwid, pass_key).send_requests():
             logger.info("激活码无效，请重新输入:")
@@ -109,7 +137,8 @@ class XBOXY:
     
     def select_input_method(self):
         """
-        选择账号输入方式。
+        The `select_input_method` function allows the user to choose between loading accounts from a file or
+        manually inputting a single account.
         """
         console.print("请选择账号输入方式:", style="bold cyan")
         table = Table(title="输入方式")
@@ -130,7 +159,7 @@ class XBOXY:
 
     def load_accounts_from_file(self):
         """
-        从文件加载账号。
+        This Python function loads accounts from a file by parsing email and password pairs from each line.
         """
         file_path = Prompt.ask("请输入文件路径")
         if not os.path.exists(file_path):
@@ -148,7 +177,7 @@ class XBOXY:
 
     def input_single_account(self):
         """
-        手动输入单个账号。
+        This function allows the user to manually input a single Xbox account with email and password.
         """
         email = input("请输入你的 Xbox 账号: ").strip()
         password = input("请输入该账号的密码: ").strip()
@@ -156,7 +185,8 @@ class XBOXY:
 
     def run(self):
         """
-        遍历所有账号，执行登录流程。
+        The `run` function iterates through a list of accounts, logs in using the provided email and
+        password, and appends the resulting links to a list.
         """
         for email, password in self.accounts:
             for link in XBOXYBrowser(email=email, password=password).result_data:
@@ -164,7 +194,7 @@ class XBOXY:
 
     def cleanup(self):
         """
-        程序退出时关闭代理。
+        The `cleanup` function closes the proxy server when the program exits.
         """
         logger.info("关闭代理服务器...")
         systemutils.Runner(path=f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path}").terminate()
