@@ -9,8 +9,8 @@ from ..systemutils import JsonFile
 logger = log.logger
 
 version = 'v1.0.4'
-release_date = '2024-12-30'
-build = '3'
+release_date = '2025-2-2'
+build = '4'
 update_note = \
     """
     v1.0.3 b1
