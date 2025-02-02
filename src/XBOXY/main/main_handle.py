@@ -1,13 +1,14 @@
 # The `XBOXY` class is a program class responsible for managing multiple accounts, initializing
 # authentication and proxy connection, and providing methods for loading accounts from files or manual
 # input.
+from asyncio import as_completed
 import pathlib
 import os
 import re
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
-
+from concurrent.futures import ThreadPoolExecutor
 
 from .xboxy_browser import XBOXYBrowser
 from .. import log
@@ -182,15 +183,33 @@ class XBOXY:
         email = input("请输入你的 Xbox 账号: ").strip()
         password = input("请输入该账号的密码: ").strip()
         self.accounts.append((email, password))
+    
+    def process_account(self, email: str, password: str) -> list:
+        """单个账号的处理逻辑"""
+        try:
+            # 假设 XBOXYBrowser(email, password) 返回一个对象，result_data 是一个可迭代对象
+            return list(XBOXYBrowser(email=email, password=password).result_data)
+        except Exception as e:
+            return [f"Error for {email}: {e}"]
 
     def run(self):
         """
         The `run` function iterates through a list of accounts, logs in using the provided email and
         password, and appends the resulting links to a list.
         """
-        for email, password in self.accounts:
-            for link in XBOXYBrowser(email=email, password=password).result_data:
-                self.result.append(link)
+        with ThreadPoolExecutor(max_workers=12) as executor:
+            
+            future_to_account = {
+                executor.submit(self.process_account, email, password): (email, password)
+                for email, password in self.accounts
+            }
+            
+            for future in as_completed(future_to_account):
+                # 获取任务的返回结果
+                links = future.result()
+                self.result.extend(links)  # 将结果添加到总列表
+                
+
 
     def cleanup(self):
         """
