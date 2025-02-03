@@ -187,7 +187,6 @@ class XBOXY:
     def process_account(self, email: str, password: str) -> list:
         """单个账号的处理逻辑"""
         try:
-            # 假设 XBOXYBrowser(email, password) 返回一个对象，result_data 是一个可迭代对象
             return list(XBOXYBrowser(email=email, password=password).result_data)
         except Exception as e:
             return [f"Error for {email}: {e}"]
