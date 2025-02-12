@@ -10,7 +10,7 @@ logger = log.logger
 
 version = 'v1.0.4'
 release_date = '2025-2-12'
-build = '5'
+build = '6'
 
 print(r"""
                 

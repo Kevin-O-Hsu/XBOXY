@@ -162,7 +162,7 @@ class XBOXY:
                 if result[1]:
                     results.extend(result[0])
 
-        logger.info(results)
+        # logger.info(results)
         # 将结果展平并添加到 self.result 中
         self.result.extend([item for sublist in results for item in sublist])
                 
