@@ -1,11 +1,13 @@
 from asyncio import as_completed
+from functools import partial
 import os
 import re
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
 from concurrent.futures import ThreadPoolExecutor
-
+import multiprocessing
+import concurrent
 from .xboxy_browser import XBOXYBrowser
 from .. import log
 from .. import systemutils
@@ -45,16 +47,8 @@ class XBOXY:
         logger.info("所有账号已加载")
         logger.info("正在连接到代理服务器...")
         try:
-            og_config = systemutils.JsonFile("resources/ny.json").get_json_data()
-            
-            proxy_config_path = systemutils.JsonFile("resources/fix_ny.json", type="dict")
-            for rule in og_config["route"]["rule_set"]:
-                rule["path"] = str(systemutils.File(rule["path"]).path)
-            
-            proxy_config_path.write_json_data(og_config)
-            
-            systemutils.Runner(path=systemutils.File("resources/singbox.exe").path, 
-                               args=f"-c {proxy_config_path.path} run").run()
+
+            systemutils.Runner(path="resources/singbox.exe", args=f"-c \"resources/ny.json\" run").run()
             logger.info("代理服务器已连接")
         except Exception as e:
             logger.warning(f"代理服务器连接失败: {e}")
@@ -92,7 +86,7 @@ class XBOXY:
             if input("同意EULA[Y/N]>>> ").lower() != 'y':
                 return False
             else:
-                config_file.update_json_data({"accept_eula": True})
+                config_file["accept_eula"] = True
         return True
     
     def select_input_method(self):
@@ -143,35 +137,33 @@ class XBOXY:
         password = input("请输入该账号的密码: ").strip()
         self.accounts.append((email, password))
     
-    def process_account(self, email: str, password: str) -> list:
+    def process_account(self, email: str, password: str) -> tuple[list, bool]:
         """单个账号的处理逻辑"""
         try:
-            return list(XBOXYBrowser(email=email, password=password).result_data)
+            return list(XBOXYBrowser(email=email, password=password).result_data), True
         except Exception as e:
-            return [f"Error for {email}: {e}"]
+            return [f"Error for {email}: {e}"], False
+        
+
 
     def run(self):
         """
         The `run` function iterates through a list of accounts, logs in using the provided email and
         password, and appends the resulting links to a list.
         """
-        with ThreadPoolExecutor(max_workers=12) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+            # 使用 map 来并发处理每个账号
+            future_to_account = {executor.submit(self.process_account, email, password): (email, password)
+                                 for email, password in self.accounts}
             
-            future_to_account = {
-                executor.submit(self.process_account, email, password): (email, password)
-                for email, password in self.accounts
-            }
-            
-            for future in as_completed(future_to_account):
-                # 获取任务的返回结果
-                links = future.result()
-                self.result.extend(links)  # 将结果添加到总列表
+            results = []
+            for future in concurrent.futures.as_completed(future_to_account):
+                result = future.result()
+                if result[1]:
+                    results.extend(result[0])
+
+        logger.info(results)
+        # 将结果展平并添加到 self.result 中
+        self.result.extend([item for sublist in results for item in sublist])
                 
-    def cleanup(self):
-        """
-        The `cleanup` function closes the proxy server when the program exits.
-        """
-        logger.info("关闭代理服务器...")
-        systemutils.Runner(path=f"{systemutils.File("resources/singbox.exe").path}").terminate()
-        logger.info("代理服务器已关闭")
         

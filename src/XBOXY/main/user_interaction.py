@@ -1,4 +1,4 @@
-import pathlib
+import asyncio
 import msvcrt
 import ctypes
 
@@ -43,22 +43,22 @@ logger.info(f"Version: {version} build {build} released on {release_date} by Gre
 ctypes.windll.kernel32.SetConsoleTitleW(f"XBOXY {version} build {build} by GreshAnt")
 try:
     xboxy = XBOXY()
-    output_file = JsonFile("output.json")
+    output_file = JsonFile("output.json", type="list")
 
     xboxy.initialize()
+    # asyncio.run(xboxy.run())
     xboxy.run()
     logger.info(xboxy.result)
     for link in xboxy.result:
         output_file.append(link)
         
 except Exception as e:
-    # logger.error(e)
+    logger.error(e)
     pass
     
 finally:
     if len(output_file.get_json_data()) == 0:
         output_file.del_file()
-    xboxy.cleanup()
     print("按下任意键退出...")
     msvcrt.getch()  # 等待按下任意键
 
