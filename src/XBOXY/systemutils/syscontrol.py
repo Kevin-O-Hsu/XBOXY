@@ -1,5 +1,4 @@
 import subprocess
-import psutil
 import pathlib
 from ..log import logger
 
