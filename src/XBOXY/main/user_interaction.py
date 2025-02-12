@@ -9,43 +9,9 @@ from ..systemutils import JsonFile
 logger = log.logger
 
 version = 'v1.0.4'
-release_date = '2025-2-2'
-build = '4'
-update_note = \
-    """
-    v1.0.3 b1
-    * 修复了一些已知问题
-    * 解决了无法下一步的问题
-    * 使用无头模式，即浏览器窗口不可见
-    * 可以从文件导入账号密码，且会根据格式自动识别，乱七八糟的格式也可以尝试丢进来
-    * 优化了部分代码
-    * 拒绝selenium等老套框架，更加高效先进
-    * 优化了Build的流程和release的文件管理
-    
-    v1.0.3 b2
-    * 修复了一些已知问题
-    
-    v1.0.3 b3
-    * 修复了部分已知问题
-    * 优化了部分代码
-    
-    v1.0.3 b4
-    * 修复了输入账户后一直卡住的问题
-    * 增加了发包的随机性，不易检测出是机器人
-    * 修复了一些已知问题
-    
-    v1.0.4 b1
-    * 修复了按下回车键程序不退出的问题
-    * 修复了卡在输入账号不动的问题
-    * 将配置文件从config/config.json变成了config.json
-    * 修复了若干个小问题
-    * 优化代码
-    
-    v1.0.3 b2-b3
-    * 修复了某些账号无法登录的问题
-    * 优化了用户提示
-    
-    """
+release_date = '2025-2-12'
+build = '5'
+
 print(r"""
         
 $$\   $$\ $$$$$$$\   $$$$$$\  $$\   $$\ $$\     $$\       
@@ -73,12 +39,12 @@ $$ /  $$ |$$$$$$$  | $$$$$$  |$$ /  $$ |    $$ |
 
 
 logger.info(f"Version: {version} build {build} released on {release_date} by GreshAnt")
-logger.info(update_note)
+
 ctypes.windll.kernel32.SetConsoleTitleW(f"XBOXY {version} build {build} by GreshAnt")
 try:
     xboxy = XBOXY()
-    output_file = JsonFile(pathlib.Path("output.json"), needed=True)
-    output_file.create_file()
+    output_file = JsonFile("output.json")
+
     xboxy.initialize()
     xboxy.run()
     logger.info(xboxy.result)
@@ -96,12 +62,3 @@ finally:
     print("按下任意键退出...")
     msvcrt.getch()  # 等待按下任意键
 
-
-# xboxy = XBOXY()
-# output_file = JsonFile(pathlib.Path("output.json"), needed=True)
-# output_file.create_file()
-# xboxy.initialize()
-# xboxy.run()
-# logger.info(xboxy.result)
-# for link in xboxy.result:
-#     output_file.append(link)

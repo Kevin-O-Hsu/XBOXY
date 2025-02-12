@@ -3,20 +3,11 @@ import psutil
 import pathlib
 from ..log import logger
 
-# The `Runner` class in Python initializes with optional command and path attributes.
+
 class Runner(object):
-    def __init__(self, cmd=None, path=None):
-        """
-        The function is a Python constructor that initializes two attributes, cmd and path, with optional
-        default values.
+    def __init__(self, path: str | pathlib.Path, args: str=None):
+        self.args = args
         
-        :param cmd: The `cmd` parameter in the `__init__` method is used to store a command or instruction.
-        It is a parameter that can be passed when creating an instance of the class
-        :param path: The `path` parameter in the `__init__` method is used to specify the path where the
-        command should be executed or where the output of the command should be saved. It allows you to
-        define the working directory for the command execution or specify the location for saving files
-        """
-        self.cmd = cmd
         if isinstance(path, str):
             self.path = pathlib.Path(path)
         else:
@@ -29,7 +20,7 @@ class Runner(object):
         :return: The `pid` (process ID) of the subprocess that is created by running the PowerShell command
         specified in `self.cmd` is being returned.
         """
-        process = subprocess.Popen(["powershell", "-Command", self.cmd], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        process = subprocess.Popen(["powershell", "-Command", self.path, self.args], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
         return process.pid
         
     def terminate(self):
@@ -40,7 +31,7 @@ class Runner(object):
             if (proc.info["exe"] is None) or (proc.info["pid"] == 0):
                 continue
             try:
-                if pathlib.Path(proc.info['exe']).resolve() == pathlib.Path(self.path).resolve():
+                if pathlib.Path(proc.info['exe']).resolve() == self.path.resolve():
                     logger.info(f"终止进程: {proc.info['name']} (PID: {proc.info['pid']})")
                     proc.terminate()
             except (psutil.NoSuchProcess, psutil.AccessDenied) as e:

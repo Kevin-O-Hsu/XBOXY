@@ -1,8 +1,4 @@
-# The `XBOXY` class is a program class responsible for managing multiple accounts, initializing
-# authentication and proxy connection, and providing methods for loading accounts from files or manual
-# input.
 from asyncio import as_completed
-import pathlib
 import os
 import re
 from rich.console import Console
@@ -13,13 +9,11 @@ from concurrent.futures import ThreadPoolExecutor
 from .xboxy_browser import XBOXYBrowser
 from .. import log
 from .. import systemutils
-from .. import verify
 
 logger = log.logger
 console = Console()
 
-# The `XBOXY` class manages multiple accounts, handles initialization, configuration setup, account
-# loading, and proxy connection in a Python program.
+
 class XBOXY:
     """
     主程序类，负责多账号管理、代理启动等功能。
@@ -36,105 +30,70 @@ class XBOXY:
         The `initialize` function in Python initializes the program by performing identity verification,
         connecting to a proxy, validating a license key, and loading accounts.
         """
-        logger.info("开始身份验证...")
-        config_file = systemutils.JsonFile(pathlib.Path("config.json"), needed=True)
+
+        config_file = systemutils.JsonFile("config.json", type="dict")
         
-        # 这里只是验证文件的格式是否正确，并确保同意了eula
-        if not config_file.is_exist:  # 修正用法为属性访问
+
+        if not config_file.exists():
             self.setup_config(config_file)
         else:
             self.validate_config(config_file)
 
-        # 这里开始验证激活码
-        pass_key = config_file.get_json_data().get("license_key")
-        self.verify_license(pass_key, config_file)
-        logger.info("激活码验证成功")
 
-        # 这个方法就是通过各种方式向self.account里面增加键值对
         self.select_input_method()
 
         logger.info("所有账号已加载")
         logger.info("正在连接到代理服务器...")
         try:
-            og_config = systemutils.JsonFile(pathlib.Path("resources/ny.json")).get_json_data()
+            og_config = systemutils.JsonFile("resources/ny.json").get_json_data()
             
-            proxy_config_path = systemutils.JsonFile(pathlib.Path("resources/fix_ny.json")).create_file()
+            proxy_config_path = systemutils.JsonFile("resources/fix_ny.json", type="dict")
             for rule in og_config["route"]["rule_set"]:
-                rule["path"] = str(systemutils.File(pathlib.Path(rule["path"])).path)
+                rule["path"] = str(systemutils.File(rule["path"]).path)
             
             proxy_config_path.write_json_data(og_config)
             
-            systemutils.Runner(
-                f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path} -c {proxy_config_path.path} run"
-            ).run()
+            systemutils.Runner(path=systemutils.File("resources/singbox.exe").path, 
+                               args=f"-c {proxy_config_path.path} run").run()
             logger.info("代理服务器已连接")
         except Exception as e:
             logger.warning(f"代理服务器连接失败: {e}")
-            raise Exception
+            raise e
 
 
     def setup_config(self, config_file: systemutils.JsonFile):
         """
-        This Python function sets up a configuration file, prompts the user to agree to an End User License
-        Agreement (EULA), and collects a software activation key.
+        This function sets up a configuration file by writing data indicating acceptance of an End User
+        License Agreement (EULA) after user confirmation.
         
-        :param config_file: The `config_file` parameter is an instance of the `JsonFile` class from the
-        `systemutils` module. It is used to handle operations related to a JSON configuration file, such as
-        creating the file, writing JSON data to it, and reading JSON data from it
+        :param config_file: The `config_file` parameter is of type `systemutils.JsonFile`, which is likely a
+        class or object representing a JSON file that can be read from or written to. In the provided code
+        snippet, the `setup_config` method takes a `config_file` parameter of type `systemutils.Json
         :type config_file: systemutils.JsonFile
         """
-        config_file.create_file()
-        config_file.write_json_data({})
-        logger.info("配置文件已创建")
-        if input("是否同意EULA[Y/N]>>> ").lower() != 'y':
-            logger.warning("未同意EULA, 程序退出")
-            raise Exception
-        logger.info("请输入你的软件激活码: ")
-        pass_key = input("激活码>>> ")
-        config_file.write_json_data({"license_key": pass_key, "accept_eula": True})
+        assert input("是否同意EULA[Y/N]>>> ").lower() == 'y'
+        config_file.write_json_data({"accept_eula": True})
 
-    def validate_config(self, config_file: systemutils.JsonFile):
+    def validate_config(self, config_file: systemutils.JsonFile) -> bool:
         """
-        This Python function validates an existing configuration file by checking and updating certain
-        key-value pairs.
+        The function `validate_config` checks if the user has accepted the End User License Agreement (EULA)
+        in a JSON configuration file and updates the file accordingly.
         
-        :param config_file: The `config_file` parameter in the `validate_config` method is of type
-        `systemutils.JsonFile`. This parameter is used to read and update a JSON configuration file that
-        contains settings for the program. The method reads the JSON data from the `config_file`, checks if
-        certain keys exist in the
+        :param config_file: The `config_file` parameter is of type `systemutils.JsonFile`, which is likely a
+        class or object representing a JSON file. The `validate_config` method reads data from this JSON
+        file, checks if a specific key `"accept_eula"` is present and has a truthy value. If
         :type config_file: systemutils.JsonFile
+        :return: The `validate_config` method returns a boolean value. It returns `True` if the
+        "accept_eula" key in the JSON data obtained from the `config_file` is `True` or if the user inputs
+        'Y' when prompted to agree to the EULA. Otherwise, it returns `False`.
         """
         data = config_file.get_json_data()
         if not data.get("accept_eula"):
             if input("同意EULA[Y/N]>>> ").lower() != 'y':
-                logger.warning("未同意EULA, 程序退出")
-                raise Exception
-            config_file.update_json_data({"accept_eula": True})
-        if not data.get("license_key"):
-            logger.info("请输入你的软件激活码: ")
-            pass_key = input("激活码>>> ")
-            config_file.update_json_data({"license_key": pass_key})
-
-    def verify_license(self, pass_key, config_file: systemutils.JsonFile):
-        """
-        This Python function verifies a license key by sending online verification requests and updates a
-        JSON configuration file with the valid key.
-        
-        :param pass_key: The `pass_key` parameter is the activation code that is used to verify the license.
-        It is provided by the user and is used in the online verification process to check the validity of
-        the license
-        :param config_file: The `config_file` parameter is of type `systemutils.JsonFile`, which is likely a
-        class or object that handles reading and writing JSON data to a file. In this context, it seems to
-        be used for storing and updating license key information. The `update_json_data` method is likely a
-        :type config_file: systemutils.JsonFile
-        """
-        while not verify.OnlineVerification(verify.Collection().hwid, pass_key).send_requests():
-            logger.info("激活码无效，请重新输入:")
-            pass_key = input("激活码>>> ")
-        
-        # 有效了之后要记得更新文件
-        config_file.update_json_data(("license_key", pass_key))
-        
+                return False
+            else:
+                config_file.update_json_data({"accept_eula": True})
+        return True
     
     def select_input_method(self):
         """
@@ -149,14 +108,14 @@ class XBOXY:
         table.add_row("2", "手动输入单个账号")
         console.print(table)
 
-        choice = Prompt.ask("请选择 (1/2)")
-        if choice == "1":
-            self.load_accounts_from_file()
-        elif choice == "2":
-            self.input_single_account()
-        else:
-            logger.warning("无效选择，程序退出")
-            raise Exception
+        match Prompt.ask("请选择 (1/2)"):
+            case "1":
+                self.load_accounts_from_file()
+            case "2":
+                self.input_single_account()
+            case _:
+                logger.warning("无效选择，程序退出")
+                raise Exception
 
     def load_accounts_from_file(self):
         """
@@ -208,13 +167,11 @@ class XBOXY:
                 links = future.result()
                 self.result.extend(links)  # 将结果添加到总列表
                 
-
-
     def cleanup(self):
         """
         The `cleanup` function closes the proxy server when the program exits.
         """
         logger.info("关闭代理服务器...")
-        systemutils.Runner(path=f"{systemutils.File(pathlib.Path("resources/singbox.exe")).path}").terminate()
+        systemutils.Runner(path=f"{systemutils.File("resources/singbox.exe").path}").terminate()
         logger.info("代理服务器已关闭")
         
