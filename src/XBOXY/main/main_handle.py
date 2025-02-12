@@ -1,18 +1,16 @@
-from asyncio import as_completed
-from functools import partial
 import os
 import re
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
-from concurrent.futures import ThreadPoolExecutor
-import multiprocessing
 import concurrent
 from .xboxy_browser import XBOXYBrowser
-from .. import log
+from ..log import logger
 from .. import systemutils
+import sys
+print([m for m in sys.modules if "asyncio" in m])
 
-logger = log.logger
+
 console = Console()
 
 
@@ -159,8 +157,12 @@ class XBOXY:
             results = []
             for future in concurrent.futures.as_completed(future_to_account):
                 result = future.result()
+                
                 if result[1]:
                     results.extend(result[0])
+                else:
+                    logger.error(result)
+                
 
         # logger.info(results)
         # 将结果展平并添加到 self.result 中

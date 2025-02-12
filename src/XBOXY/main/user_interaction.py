@@ -1,16 +1,13 @@
-import asyncio
-import msvcrt
 import ctypes
-
+import msvcrt
 from .main_handle import XBOXY
-from .. import log
+from ..log import logger
 from ..systemutils import JsonFile
 
-logger = log.logger
 
 version = 'v1.0.4'
-release_date = '2025-2-12'
-build = '6'
+release_date = '2025-2-13'
+build = '7'
 
 print(r"""
                 
@@ -46,7 +43,6 @@ try:
     output_file = JsonFile("output.json", type="list")
 
     xboxy.initialize()
-    # asyncio.run(xboxy.run())
     xboxy.run()
     logger.info(xboxy.result)
     for link in xboxy.result:
@@ -60,5 +56,5 @@ finally:
     if len(output_file.get_json_data()) == 0:
         output_file.del_file()
     print("按下任意键退出...")
-    msvcrt.getch()  # 等待按下任意键
+    msvcrt.getch()
 

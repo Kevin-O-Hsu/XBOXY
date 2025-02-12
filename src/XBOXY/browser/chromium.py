@@ -18,7 +18,7 @@ class ChromiumBrowser(object):
                 proxy={
                     "server": f"http://127.0.0.1:30290/",
                     },
-                executable_path=pathlib.Path("osrcd/chromium-1140/chrome-win/chrome.exe"),
+                executable_path=pathlib.Path("osrcd/chrome-win/headless_shell.exe"),
                 )
                 
             self.set_context()

@@ -2,8 +2,8 @@ import pathlib
 from typing import Literal
 import orjson
 
-from .. import log
-logger = log.logger
+from ..log import logger
+
 
 
 class File(object):
