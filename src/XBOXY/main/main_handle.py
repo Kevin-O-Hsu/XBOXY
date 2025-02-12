@@ -7,8 +7,7 @@ import concurrent
 from .xboxy_browser import XBOXYBrowser
 from ..log import logger
 from .. import systemutils
-import sys
-print([m for m in sys.modules if "asyncio" in m])
+
 
 
 console = Console()
