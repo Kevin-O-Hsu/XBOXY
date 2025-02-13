@@ -36,7 +36,6 @@ class XBOXY:
         logger.info("所有账号已加载")
         logger.info("正在连接到代理服务器...")
         try:
-
             systemutils.Runner(path="resources/singbox.exe", args=f"-c \"resources/ny.json\" run").run()
             logger.info("代理服务器已连接")
         except Exception as e:

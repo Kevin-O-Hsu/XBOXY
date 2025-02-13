@@ -23,7 +23,7 @@ class XBOXYBrowser(browser.ChromiumBrowser):
             r'https://www.xbox.com/zh-hk/auth/msa?action=logIn&returnUrl=https%3A%2F%2Fwww.xbox.com%2Fzh-HK%2Fxbox-game-pass%2Finvite-your-friends&ru=https%3A%2F%2Fwww.xbox.com%2Fzh-HK%2Fxbox-game-pass%2Finvite-your-friends'
         )
         p.wait_for_load_state("networkidle", timeout=0)
-
+        
         # 输入账号和密码进行登录
         logger.info("输入账号和密码尝试登录...")
         
@@ -49,6 +49,10 @@ class XBOXYBrowser(browser.ChromiumBrowser):
             
             if self.element_exists(p, 'div[data-testid="codeEntry"]'):
                 logger.warning("需要验证码, 无法登录")
+                return []
+            
+            if self.element_exists(p, 'div[id="i0116Error"]'):
+                logger.warning("账号错误")
                 return []
             
             if self.element_exists(p, 'input[id="idTxtBx_OTC_Password"]'):
