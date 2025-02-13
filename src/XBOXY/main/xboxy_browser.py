@@ -43,6 +43,9 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         p.wait_for_load_state("networkidle", timeout=0)
         
         while True:
+            if self.element_exists(p, 'div[id="pushNotificationsTitle"]'):
+                p.locator('span[tabindex="0"][id="idA_PWD_SwitchToPassword"]').click()
+            
             if self.element_exists(p, 'div[id="field-7__validationMessage"]'):
                 logger.warning("无法登录")
                 return []
