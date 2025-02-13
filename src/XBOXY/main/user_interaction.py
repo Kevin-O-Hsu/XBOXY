@@ -5,9 +5,9 @@ from ..log import logger
 from ..systemutils import JsonFile
 
 
-version = 'v1.0.4'
+version = 'v1.0.5'
 release_date = '2025-2-13'
-build = '7'
+build = '1'
 
 print(r"""
                 

@@ -1,5 +1,6 @@
 import os
 import re
+import winreg
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
@@ -29,16 +30,7 @@ class XBOXY:
         The `initialize` function in Python initializes the program by performing identity verification,
         connecting to a proxy, validating a license key, and loading accounts.
         """
-
-        config_file = systemutils.JsonFile("config.json", type="dict")
-        
-
-        if not config_file.exists():
-            self.setup_config(config_file)
-        else:
-            self.validate_config(config_file)
-
-
+        self.check_eula()
         self.select_input_method()
 
         logger.info("所有账号已加载")
@@ -52,39 +44,27 @@ class XBOXY:
             raise e
 
 
-    def setup_config(self, config_file: systemutils.JsonFile):
+    def check_eula(self):
         """
-        This function sets up a configuration file by writing data indicating acceptance of an End User
-        License Agreement (EULA) after user confirmation.
+        This Python function checks if the user has accepted an End User License Agreement (EULA) and
+        prompts them to accept it if necessary.
+        """
+        need_accept: bool = False
+        try:
+            # 打开注册表键
+            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"SOFTWARE\XBOXY", 0, winreg.KEY_READ) as key:
+                value, reg_type = winreg.QueryValueEx(key, "eula")
+        except FileNotFoundError:
+            need_accept = True
         
-        :param config_file: The `config_file` parameter is of type `systemutils.JsonFile`, which is likely a
-        class or object representing a JSON file that can be read from or written to. In the provided code
-        snippet, the `setup_config` method takes a `config_file` parameter of type `systemutils.Json
-        :type config_file: systemutils.JsonFile
-        """
-        assert input("是否同意EULA[Y/N]>>> ").lower() == 'y'
-        config_file.write_json_data({"accept_eula": True})
-
-    def validate_config(self, config_file: systemutils.JsonFile) -> bool:
-        """
-        The function `validate_config` checks if the user has accepted the End User License Agreement (EULA)
-        in a JSON configuration file and updates the file accordingly.
-        
-        :param config_file: The `config_file` parameter is of type `systemutils.JsonFile`, which is likely a
-        class or object representing a JSON file. The `validate_config` method reads data from this JSON
-        file, checks if a specific key `"accept_eula"` is present and has a truthy value. If
-        :type config_file: systemutils.JsonFile
-        :return: The `validate_config` method returns a boolean value. It returns `True` if the
-        "accept_eula" key in the JSON data obtained from the `config_file` is `True` or if the user inputs
-        'Y' when prompted to agree to the EULA. Otherwise, it returns `False`.
-        """
-        data = config_file.get_json_data()
-        if not data.get("accept_eula"):
-            if input("同意EULA[Y/N]>>> ").lower() != 'y':
-                return False
-            else:
-                config_file["accept_eula"] = True
-        return True
+        if need_accept or (not value):
+            logger.warning("你还没有同意EULA, 请查看文件夹内eula.txt")
+            match input("是否同意eula? [y/n] >").lower():
+                case 'y':
+                    with winreg.CreateKey(winreg.HKEY_CURRENT_USER, r"SOFTWARE\XBOXY") as key:
+                        winreg.SetValueEx(key, "eula", 0, winreg.REG_DWORD, 1)
+                case _:
+                    raise "未同意eula, 程序退出"
     
     def select_input_method(self):
         """

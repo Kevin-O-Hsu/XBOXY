@@ -26,29 +26,63 @@ class XBOXYBrowser(browser.ChromiumBrowser):
 
         # 输入账号和密码进行登录
         logger.info("输入账号和密码尝试登录...")
-        p.locator('input[id="i0116"]').fill(self.email)
-        self.wait_for_change(p, 'input[id="i0116"]', self.email)
+        
+        while True:
+            if self.element_exists(p, 'input[id="i0116"]'):
+                email_selector = 'input[id="i0116"]'
+                break
+            elif self.element_exists(p, 'input[type="email"][id="usernameEntry"]'):
+                email_selector = 'input[type="email"][id="usernameEntry"]'
+                break
+            else:
+                continue
+            
+        p.locator(email_selector).fill(self.email)
+        self.wait_for_change(p, email_selector, self.email)
         p.locator('button[type="submit"]').click()
         p.wait_for_load_state("networkidle", timeout=0)
         
-        while not self.element_exists(p, 'input[id="i0118"]'):
-            if self.element_exists(p, 'alert', 'role'):
+        while True:
+            if self.element_exists(p, 'div[id="field-7__validationMessage"]'):
                 logger.warning("无法登录")
+                return []
+            
+            if self.element_exists(p, 'div[data-testid="codeEntry"]'):
+                logger.warning("需要验证码, 无法登录")
                 return []
             
             if self.element_exists(p, 'input[id="idTxtBx_OTC_Password"]'):
                 p.locator('span[role="button"][id="idA_PWD_SwitchToCredPicker"]').click()
                 p.locator('#tileList > div:nth-child(2) > div > button').click()
             
-        p.wait_for_load_state("networkidle", timeout=0)
-        p.locator('input[id="i0118"]').fill(self.password)
-        self.wait_for_change(p, 'input[id="i0118"]', self.password)
+            if self.element_exists(p, 'input[id="i0118"]'):
+                password_selector = 'input[id="i0118"]'
+                break
+            
+            elif self.element_exists(p, 'input[type="password"][name="passwd"]'):
+                password_selector = 'input[type="password"][name="passwd"]'
+                break
+        
+        
+        p.locator(password_selector).fill(self.password)
+        self.wait_for_change(p, password_selector, self.password)
         p.locator('button[type="submit"]').click()
         p.wait_for_load_state("networkidle", timeout=0)
 
-
+        if self.element_exists(p, 'div[id="idTD_Error"]'):
+            logger.warning("登录被阻止")
+            return []
+        
+        if self.element_exists(p, 'img[data-testid="errorImage"]'):
+            logger.warning("登录被阻止")
+            return []
+        
         if self.element_exists(p, 'div[id="i0118Error"]'):
             logger.warning("密码错误")
+            return []
+        
+        if self.element_exists(p, 'alert', 'role'):
+            logger.warning("无法登录")
             return []
         
         if self.element_exists(p, '#i1011'):
@@ -57,6 +91,10 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         
         if self.element_exists(p, 'div[class="UpdatePasswordPageContainer PageContainer"]'):
             logger.warning("需要更新密码, 无法登录")
+            return []
+        
+        if self.element_exists(p, 'input[id="otc-confirmation-input"]'):
+            logger.warning("有两步验证, 无法登录")
             return []
         
         if self.element_exists(p, 'input[type="button"][id="iLandingViewAction"]'):
