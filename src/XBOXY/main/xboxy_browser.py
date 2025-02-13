@@ -74,57 +74,60 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         p.locator(password_selector).fill(self.password)
         self.wait_for_change(p, password_selector, self.password)
         p.locator('button[type="submit"]').click()
-        p.wait_for_load_state("networkidle", timeout=0)
-
-        if self.element_exists(p, 'div[id="idTD_Error"]'):
-            logger.warning("登录被阻止")
-            return []
-        
-        if self.element_exists(p, 'img[data-testid="errorImage"]'):
-            logger.warning("登录被阻止")
-            return []
-        
-        if self.element_exists(p, 'div[id="i0118Error"]'):
-            logger.warning("密码错误")
-            return []
-        
-        if self.element_exists(p, 'alert', 'role'):
-            logger.warning("无法登录")
-            return []
-        
-        if self.element_exists(p, '#i1011'):
-            logger.warning("无法登录")
-            return []
-        
-        if self.element_exists(p, 'div[class="UpdatePasswordPageContainer PageContainer"]'):
-            logger.warning("需要更新密码, 无法登录")
-            return []
-        
-        if self.element_exists(p, 'input[id="otc-confirmation-input"]'):
-            logger.warning("有两步验证, 无法登录")
-            return []
-        
-        if self.element_exists(p, 'input[type="button"][id="iLandingViewAction"]'):
-            p.locator('input[type="button"][id="iLandingViewAction"]').click()
-            p.wait_for_load_state("networkidle", timeout=0)
+        p.wait_for_load_state()
+        while True:
+            if self.element_exists(p, 'div[id="idTD_Error"]'):
+                logger.warning("登录被阻止")
+                return []
             
-        if self.element_exists(p, 'div[role="heading"][id="serviceAbuseLandingTitle"]'):
-            logger.warning("需要验证邮箱, 无法登录")
-            return []
-        
-        if self.element_exists(p, 'div[id="iSelectProofTitle"]'):
-            logger.warning("需要验证身份, 无法登录")
-            return []
-        
-        if self.element_exists(p, 'select[id="iProofOptions"]'):
-            if self.element_exists(p, 'a[id="iShowSkip"]'):
-                p.locator('a[id="iShowSkip"]').click()
-            else:
+            if self.element_exists(p, 'img[data-testid="errorImage"]'):
+                logger.warning("登录被阻止")
+                return []
+            
+            if self.element_exists(p, 'div[id="i0118Error"]'):
+                logger.warning("密码错误")
+                return []
+            
+            if self.element_exists(p, 'alert', 'role'):
                 logger.warning("无法登录")
                 return []
             
-        if self.element_exists(p, '#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button'):
-            p.locator('#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button').click()
+            if self.element_exists(p, '#i1011'):
+                logger.warning("无法登录")
+                return []
+            
+            if self.element_exists(p, 'div[class="UpdatePasswordPageContainer PageContainer"]'):
+                logger.warning("需要更新密码, 无法登录")
+                return []
+            
+            if self.element_exists(p, 'input[id="otc-confirmation-input"]'):
+                logger.warning("有两步验证, 无法登录")
+                return []
+            
+            if self.element_exists(p, 'input[type="button"][id="iLandingViewAction"]'):
+                p.locator('input[type="button"][id="iLandingViewAction"]').click()
+                p.wait_for_load_state("networkidle", timeout=0)
+                
+            if self.element_exists(p, 'div[role="heading"][id="serviceAbuseLandingTitle"]'):
+                logger.warning("需要验证邮箱, 无法登录")
+                return []
+            
+            if self.element_exists(p, 'div[id="iSelectProofTitle"]'):
+                logger.warning("需要验证身份, 无法登录")
+                return []
+            
+            if self.element_exists(p, 'select[id="iProofOptions"]'):
+                if self.element_exists(p, 'a[id="iShowSkip"]'):
+                    p.locator('a[id="iShowSkip"]').click()
+                else:
+                    logger.warning("无法登录")
+                    return []
+                
+            if self.element_exists(p, '#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button'):
+                p.locator('#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button').click()
+            
+            if self.element_exists(p, 'button[id="acceptButton"]'):
+                break
             
         p.wait_for_load_state("networkidle", timeout=0)
         p.locator('button[id="acceptButton"]').click()

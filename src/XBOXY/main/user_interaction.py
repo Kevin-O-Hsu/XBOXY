@@ -7,7 +7,7 @@ from ..systemutils import JsonFile
 
 version = 'v1.0.5'
 release_date = '2025-2-13'
-build = '2'
+build = '3'
 
 print(r"""
                 
