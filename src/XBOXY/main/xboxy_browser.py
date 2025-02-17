@@ -22,8 +22,8 @@ class XBOXYBrowser(browser.ChromiumBrowser):
         p.goto(
             r'https://www.xbox.com/zh-hk/auth/msa?action=logIn&returnUrl=https%3A%2F%2Fwww.xbox.com%2Fzh-HK%2Fxbox-game-pass%2Finvite-your-friends&ru=https%3A%2F%2Fwww.xbox.com%2Fzh-HK%2Fxbox-game-pass%2Finvite-your-friends'
         )
+        p.wait_for_load_state("load", timeout=0)
         p.wait_for_load_state("networkidle", timeout=0)
-        
         # 输入账号和密码进行登录
         logger.info("输入账号和密码尝试登录...")
         
@@ -69,13 +69,13 @@ class XBOXYBrowser(browser.ChromiumBrowser):
             elif self.element_exists(p, 'input[type="password"][name="passwd"]'):
                 password_selector = 'input[type="password"][name="passwd"]'
                 break
-        
-        
+
         p.locator(password_selector).fill(self.password)
         self.wait_for_change(p, password_selector, self.password)
         p.locator('button[type="submit"]').click()
-        p.wait_for_load_state()
-        while True:
+        p.wait_for_load_state('networkidle', timeout=0)
+        
+        while not self.element_exists(p, 'button[id="acceptButton"]'):
             if self.element_exists(p, 'div[id="idTD_Error"]'):
                 logger.warning("登录被阻止")
                 return []
@@ -122,17 +122,21 @@ class XBOXYBrowser(browser.ChromiumBrowser):
                 else:
                     logger.warning("无法登录")
                     return []
-                
+            
+            if self.element_exists(p, 'div[id="identityPageBanner"]'):
+                p.locator('button[id="iLandingViewAction"]').click()
+                p.wait_for_load_state("networkidle", timeout=0)
+            
             if self.element_exists(p, '#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button'):
                 p.locator('#pageContent > form:nth-child(2) > div.___1cj7yg8.f183mx53.f1turhiw.f1rmqj0e > div > div > div > div:nth-child(1) > button').click()
-            
-            if self.element_exists(p, 'button[id="acceptButton"]'):
-                break
-            
+                p.wait_for_load_state("networkidle", timeout=0)
+
         p.wait_for_load_state("networkidle", timeout=0)
         p.locator('button[id="acceptButton"]').click()
         p.wait_for_load_state("networkidle", timeout=0)
+        p.wait_for_load_state("load", timeout=0)
         
+               
         if self.element_exists(p, 'input[id="create-account-gamertag-input"]'):
             logger.warning("该账号还没有创建XBOX账号, 不可能有配额")
             return []
