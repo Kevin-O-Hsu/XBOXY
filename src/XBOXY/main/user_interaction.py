@@ -6,7 +6,7 @@ from ..systemutils import JsonFile
 
 
 version = 'v1.0.5'
-release_date = '2025-2-14'
+release_date = '2025-2-17'
 build = '3'
 
 print(r"""
@@ -45,8 +45,7 @@ try:
     xboxy.initialize()
     xboxy.run()
     logger.info(xboxy.result)
-    for link in xboxy.result:
-        output_file.append(link)
+    output_file.extend(xboxy.result)
         
 except Exception as e:
     logger.error(e)

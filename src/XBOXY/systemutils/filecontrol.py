@@ -141,7 +141,24 @@ class JsonFile(File):
                 data[value[0]] = value[1]
         self.write_json_data(data)
         return self
-
+    
+    def extend(self, value: list | tuple) -> "JsonFile":
+        """
+        The `extend` function appends a list or tuple to a JSON file if the file type is a list.
+        
+        :param value: The `value` parameter in the `extend` method is expected to be a list or a tuple. This
+        parameter is used to extend the existing data in the JSON file with the elements present in the
+        provided list or tuple
+        :type value: list | tuple
+        :return: The `extend` method is returning an instance of the "JsonFile" class.
+        """
+        assert self.type == "list"
+        data = self.get_json_data()
+        data.extend(value)
+        self.write_json_data(data)
+        return self
+        
+        
     def __getitem__(self, index: frozenset):
         data = self.get_json_data()
         return data[index]
