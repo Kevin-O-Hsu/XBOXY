@@ -37,8 +37,16 @@ class XBOXY:
         logger.info("所有账号已加载")
         logger.info("正在连接到代理服务器...")
         try:
-            systemutils.Runner(path="resources/singbox.exe", args=f"-c \"resources/ny.json\" run").run()
-            time.sleep(3)
+            proxy_process =systemutils.Runner(path="resources/singbox.exe", args=f"-c \"resources/ny.json\" run").run()
+            line = ""
+            while "sing-box started" not in line:
+                try:
+                    line = proxy_process.stdout.readline().strip()
+                    if not line:
+                        break
+                    # print(line)
+                except UnicodeDecodeError:
+                    logger.error("解码错误，跳过该行")
             logger.info("代理服务器已连接")
         except Exception as e:
             logger.warning(f"代理服务器连接失败: {e}")
