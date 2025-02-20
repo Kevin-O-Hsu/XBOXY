@@ -1,6 +1,7 @@
 import os
 import re
 import winreg
+import time
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
@@ -37,6 +38,7 @@ class XBOXY:
         logger.info("正在连接到代理服务器...")
         try:
             systemutils.Runner(path="resources/singbox.exe", args=f"-c \"resources/ny.json\" run").run()
+            time.sleep(3)
             logger.info("代理服务器已连接")
         except Exception as e:
             logger.warning(f"代理服务器连接失败: {e}")
@@ -101,8 +103,11 @@ class XBOXY:
                 match_enp = re.findall(r"([\w\.\-]+@[a-zA-Z_]+(?:\.[a-zA-Z]{2,})+):([^\s,]+)", line.strip())
                 if (not line) or (not match_enp):
                     continue
-                logger.info(match_enp)
                 email, password = match_enp[0]
+                if (":" in password):
+                    password = password.split(":")[0]
+                logger.info(f'{email} - {password}')
+                
                 self.accounts.append((email.strip(), password.strip()))
 
     def input_single_account(self):
@@ -116,7 +121,8 @@ class XBOXY:
     def process_account(self, email: str, password: str) -> tuple[list, bool]:
         """单个账号的处理逻辑"""
         try:
-            return list(XBOXYBrowser(email=email, password=password).result_data), True
+            return_data = list(XBOXYBrowser(email=email, password=password).result_data)
+            return return_data, bool(return_data)
         except Exception as e:
             return [f"Error for {email}: {e}"], False
         
@@ -127,7 +133,7 @@ class XBOXY:
         The `run` function iterates through a list of accounts, logs in using the provided email and
         password, and appends the resulting links to a list.
         """
-        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
             # 使用 map 来并发处理每个账号
             future_to_account = {executor.submit(self.process_account, email, password): (email, password)
                                  for email, password in self.accounts}
@@ -139,8 +145,8 @@ class XBOXY:
                 if result[1]:
                     results.extend(result[0])
                 else:
-                    logger.error(result)
+                    logger.error(result[0])
 
-        self.result.extend(result)
+        self.result.extend(results)
                 
         

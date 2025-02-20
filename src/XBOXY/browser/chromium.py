@@ -4,6 +4,7 @@ import ua_generator
 import random
 import string
 import pathlib
+import time
 
 
 class ChromiumBrowser(object):
@@ -23,8 +24,8 @@ class ChromiumBrowser(object):
                 
             self.set_context()
             self.result_data = self.run() 
+            time.sleep(0.5)
             self.close_context()
-    
     
     def run(self):
         """Need to override"""

@@ -11,3 +11,4 @@ fix_ny.json
 xboxy.exe
 *.7z
 *.zip
+*nuitka*
