@@ -15,9 +15,8 @@ XBOXY/
 │   └── xboxy_browser.py
 ├── resources/
 │   ├── singbox.exe
-│   ├── ny.json
-│   └── fix_ny.json
-├── config/
+│   └── ny.json
+└── config/
     └── config.json
 
 ```
@@ -34,15 +33,14 @@ pip install -r requirements.txt
 
 ### 配置文件
 
-- `config/config.json`: 配置文件，包含激活码和EULA同意状态。
-- `resources/ny.json` 和 `resources/fix_ny.json`: 代理配置文件。
+- `config/config.json`: 配置文件。
+- `resources/ny.json` : 代理配置文件。
 - `resources/singbox.exe`: 代理服务器可执行文件。
 
 ### 运行项目
 
 1. **初始化配置**:
-   - 运行项目前，确保 `config/config.json` 文件存在并已同意EULA。
-   - 输入激活码。
+   - 运行项目前，确保 `config/config.json` 文件存在。
 
 2. **选择账号输入方式**:
    - 从文件加载账号（文件格式：账号密码中间有冒号即可）。
@@ -69,8 +67,6 @@ pip install -r requirements.txt
 
 ### 注意事项
 
-- **EULA**: 在首次运行时，需要同意EULA才能继续。
-- **激活码**: 输入有效的激活码，否则程序将无法继续。
 - **账号格式**: 从文件加载账号时，确保文件格式正确，账号和密码之间用冒号分隔。
 
 ### 联系方式
